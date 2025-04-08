@@ -9,7 +9,6 @@
             Console.WriteLine("Miguel");
             Console.WriteLine("pruebas Nico");
             Console.WriteLine("Hola buenas");
-
         }
     }
 }
