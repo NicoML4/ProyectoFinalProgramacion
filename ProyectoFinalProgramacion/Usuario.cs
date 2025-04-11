@@ -16,5 +16,13 @@ namespace ProyectoFinalProgramacion
             this.nombreUsuario = nombreUsuario;
             this.contrasena = contrasena;
         }
+
+        public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
+        public string Contrasena { get => contrasena; set => contrasena = value; }
+
+        public override string ToString()
+        {
+            return nombreUsuario + " " + contrasena;
+        }
     }
 }
