@@ -154,9 +154,12 @@ namespace ProyectoFinalProgramacion
                     // listado de todos los pokemons
                     break;
                 case 3:
-                    // listado 
+                    // listado solo de los pokemons bloqueados
                     break;
                 case 4:
+                    Console.Clear();
+                    MenuTipos();
+                    SwitchTipos();
                     break;
                 case 5:
                     MenuOpciones();
@@ -174,16 +177,71 @@ namespace ProyectoFinalProgramacion
 
         }
 
+        public static void MenuTipos()
+        {
+            Console.WriteLine("1. Filtrar por tipo fuego");
+            Console.WriteLine("2. Filtrar por tipo agua");
+            Console.WriteLine("3. Filtrar por tipo tierra");
+            Console.WriteLine("4. Filtrar por tipo planta");
+            Console.WriteLine("5. Atrás");
+        }
+
+        public static void SwitchTipos()
+        {
+            Console.Write("Introduce la opción: ");
+            int opcion = Convert.ToInt32(Console.ReadLine());
+            switch(opcion)
+            {
+                case 1:
+                    // linq tipo fuego
+                    break;
+                case 2:
+                    // linq tipo agua
+                    break;
+                case 3:
+                    // linq tipo tierra
+                    break;
+                case 4:
+                    // linq tipo planta
+                    break;
+                case 5:
+                    Pokedex();
+                    break;
+            }
+        }
+
         public static void Ajustes()
         {
+            Console.Clear();
+            MenuAjustes();
+            Console.Write("Introduce la opción: ");
+            int opcion = Convert.ToInt32(Console.ReadLine());
+            switch (opcion) 
+            {
+                case 1:
+                    // reiniciar partida
+                    break;
+                case 2:
+                    // desbloquear todo
+                    break;
+                case 3:
+                    MenuOpciones();
+                    break;
+            }
+        }
 
+        public static void MenuAjustes()
+        {
+            Console.WriteLine("1. Reiniciar partida");
+            Console.WriteLine("2. Desbloquear todo");
+            Console.WriteLine("3. Atrás");
         }
 
         public static void MenuOpciones()
         {
             Console.Clear();
-            Console.WriteLine("1. Abrir sobres \n");
-            Console.WriteLine("2. Album \n");
+            Console.WriteLine("1. Abrir sobres");
+            Console.WriteLine("2. Album");
             Console.WriteLine("3. Ajustes");
             Console.Write("Introduce una opción: ");
             int opcion = Convert.ToInt32(Console.ReadLine());
