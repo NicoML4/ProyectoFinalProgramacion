@@ -72,7 +72,7 @@ namespace ProyectoFinalProgramacion
         }
         public static void Login()
         {
-            int eleccion;
+            string eleccion;
             bool valido = false;
             while(!valido)
             { 
@@ -80,9 +80,17 @@ namespace ProyectoFinalProgramacion
 
                 Console.WriteLine("2.Registrarse");
 
-                eleccion = Convert.ToInt32(Console.ReadLine());
+                eleccion = Console.ReadLine();
+                if (int.TryParse(eleccion, out int numero))
+                {
+                    Console.WriteLine("Es un número entero válido: " + numero);
+                }
+                else
+                {
+                    Console.WriteLine("No es un número entero válido.");
+                }
 
-                switch (eleccion)
+                switch (numero)
                 {
                     case 1:
                         IniciarSesion();

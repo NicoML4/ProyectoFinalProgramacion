@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
+
 /*
     Abres el archivo → lees la línea → si es "00/00/0000", lo conviertes a DateTime.MinValue.
     Cuando abres un sobre, pones la fecha actual con DateTime.Now.
@@ -23,7 +23,7 @@ class Pokemon
 
     public int GetId()
     {
-        return nombre;
+        return id;
     }
     public string GetNombre()
     {
@@ -77,10 +77,6 @@ class Pokemon
         this.tipo = tipo;
         aSidoObtenido = false;
     }
-    public override string ToString()
-    {
-        string fechaTexto = fechaObtencion == DateTime.MinValue ? "00/00/0000" : fechaObtencion.toString("dd/MM/yyyy") ;
-        return $"{id};{nombre};{vida}Ps;{tipo}";
-    }
+    
 
 }
