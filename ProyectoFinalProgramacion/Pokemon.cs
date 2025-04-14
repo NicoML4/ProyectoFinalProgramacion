@@ -77,9 +77,6 @@ class Pokemon
         this.tipo = tipo;
         aSidoObtenido = false;
     }
-    public override string ToString()
-    {
-        
-    }
+    
 
 }
