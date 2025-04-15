@@ -282,7 +282,8 @@ namespace ProyectoFinalProgramacion
                     Pokedex();
                     break;
                 case 3:
-                    Ajustes();
+                    Ajustes ajustes = new Ajustes();
+                    ajustes.MostrarMenuAjustes();
                     break;
             }    
         }
