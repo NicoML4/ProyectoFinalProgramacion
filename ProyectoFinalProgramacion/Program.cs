@@ -6,21 +6,42 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
 
-        public static void IniciarSesion()
-        //////{
+        public static void IniciarSesion(string rutaUsuarios)
+        {
+            /*
+             * JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true};
+            List<Usuario> usuarios = new List<Usuario>();
+            usuarios.Add(new Usuario("MiguelSecreto", "qwert_123"));
+            string json = JsonSerializer.Serialize(usuarios,opciones);
+            File.WriteAllText(rutaUsuarios, json);*/
+
+
+
+
+
+            /*string json = File.ReadAllText(rutaUsuarios);
+
+            List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
+
+            foreach (Usuario usuario in usuarios)
+            {
+                Console.WriteLine(usuario);
+            }
+
+            File.ReadAllText(rutaUsuarios);*/
             string nombre;
             string contrasena;
 
             File.ReadAllLines("");
         }
-        public static void Registrarse()
+        public static void Registrarse(string rutaUsuarios)
         {
             string nombreUsuarioRegistro = "";
             string contrasenaRegistro = "";
             string contrasenaRegistroRepetida = "";
             bool nombreDeUsuarioExistente = false;
 
-            string json = File.ReadAllText("usuarios.json");
+            string json = File.ReadAllText(rutaUsuarios);
 
             List<Usuario> usuariosRegistrados = JsonSerializer.Deserialize<List<Usuario>>(json);
             
@@ -33,17 +54,19 @@ namespace ProyectoFinalProgramacion
                 {
                     Console.WriteLine("No has introducido nada");
                 }
-                foreach (Usuario usuariosLista in usuariosRegistrados)
+                else 
                 {
-                    if (usuariosLista.NombreUsuario == nombreUsuarioRegistro)
+                    foreach (Usuario usuariosLista in usuariosRegistrados)
                     {
-                        Console.WriteLine("Ese nombre de usuario ya existe");
-                        nombreDeUsuarioExistente = false;
+                        if (usuariosLista.NombreUsuario == nombreUsuarioRegistro)
+                        {
+                            Console.WriteLine("Ese nombre de usuario ya existe");
+                            nombreDeUsuarioExistente = false;
 
+                        }
                     }
                 }
             }
-
             while (contrasenaRegistro == "")
             {
                 Console.WriteLine("Dime tu contraseña");
@@ -58,56 +81,57 @@ namespace ProyectoFinalProgramacion
             {
                 Console.WriteLine("Repiteme la contraseña");
                 contrasenaRegistroRepetida = Console.ReadLine();
+                if (contrasenaRegistro != contrasenaRegistroRepetida)
+                {
+                    Console.WriteLine("Ambas contraseñas no coinciden");
+                }
             }
-
             Usuario usuarioNuevo = new Usuario(nombreUsuarioRegistro, contrasenaRegistro);
-
             usuariosRegistrados.Add(usuarioNuevo);
-
             JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true };
-
             string datosSerializados = JsonSerializer.Serialize(usuariosRegistrados,opciones);
-
-            File.WriteAllText("usuarios.json",datosSerializados);
+            File.WriteAllText(rutaUsuarios,datosSerializados);
         }
         public static void Login()
         {
+            string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
             string eleccion;
             bool valido = false;
             while(!valido)
             { 
                 Console.WriteLine("1.Iniciar Sesión \n");
-
                 Console.WriteLine("2.Registrarse");
-
                 eleccion = Console.ReadLine();
-                if (int.TryParse(eleccion, out int numero))
-                {
-                    Console.WriteLine("Es un número entero válido: " + numero);
-                }
-                else
-                {
-                    Console.WriteLine("No es un número entero válido.");
-                }
 
+                int.TryParse(eleccion, out int numero);
+               
                 switch (numero)
                 {
                     case 1:
-                        IniciarSesion();
+                        IniciarSesion(rutaUsuarios);
                         break;
 
                     case 2:
-                        Registrarse();
+                        Registrarse(rutaUsuarios);
                         break;
+                    case 123456789:
+                        string json = File.ReadAllText(rutaUsuarios);
+
+                        List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
+
+                        foreach (Usuario usuario in usuarios)
+                        {
+                            Console.WriteLine(usuario);
+                        }
+                        break;
+
 
                     default:
                         Console.WriteLine("Opcion no válida");
                         break;
-
                 }
             }
         }
-
         public static void AbrirSobres()
         {
             Console.Clear();
@@ -270,6 +294,8 @@ namespace ProyectoFinalProgramacion
         
         static void Main(string[] args)
         {
+            string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
+            
             Login();
             MenuOpciones();
         }
