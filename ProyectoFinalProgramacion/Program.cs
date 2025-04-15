@@ -7,7 +7,7 @@ namespace ProyectoFinalProgramacion
     {
 
         public static void IniciarSesion()
-        {
+        //////{
             string nombre;
             string contrasena;
 
