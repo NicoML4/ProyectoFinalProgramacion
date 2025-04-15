@@ -1,0 +1,151 @@
+1;Bulbasaur;50;tierra;Ascuas;Pistola Agua;null;false
+2;Ivysaur;51;tierra;Ascuas;Pistola Agua;null;false
+3;Venusaur;87;agua;Gruñido;Pistola Agua;null;false
+4;Charmander;105;agua;Impactrueno;Pistola Agua;null;false
+5;Charmeleon;106;fuego;Látigo Cepa;Arañazo;null;false
+6;Charizard;118;agua;Gruñido;Placaje;null;false
+7;Squirtle;46;agua;Arañazo;Pistola Agua;null;false
+8;Wartortle;64;agua;Placaje;Burbuja;null;false
+9;Blastoise;56;agua;Gruñido;Burbuja;null;false
+10;Caterpie;75;planta;Arañazo;Impactrueno;null;false
+11;Metapod;116;planta;Placaje;Burbuja;null;false
+12;Butterfree;88;planta;Gruñido;Placaje;null;false
+13;Weedle;119;planta;Burbuja;Gruñido;null;false
+14;Kakuna;78;planta;Arañazo;Burbuja;null;false
+15;Beedrill;86;planta;Arañazo;Pistola Agua;null;false
+16;Pidgey;110;fuego;Pistola Agua;Burbuja;null;false
+17;Pidgeotto;50;fuego;Gruñido;Placaje;null;false
+18;Pidgeot;63;tierra;Placaje;Ascuas;null;false
+19;Rattata;37;planta;Látigo Cepa;Látigo Cepa;null;false
+20;Raticate;111;tierra;Arañazo;Pistola Agua;null;false
+21;Spearow;95;planta;Ascuas;Placaje;null;false
+22;Fearow;118;agua;Látigo Cepa;Pistola Agua;null;false
+23;Ekans;83;planta;Placaje;Arañazo;null;false
+24;Arbok;68;fuego;Ascuas;Arañazo;null;false
+25;Pikachu;52;tierra;Placaje;Burbuja;null;false
+26;Raichu;41;tierra;Ascuas;Impactrueno;null;false
+27;Sandshrew;102;tierra;Ascuas;Impactrueno;null;false
+28;Sandslash;79;tierra;Ascuas;Látigo Cepa;null;false
+29;Nidoran(F);37;planta;Placaje;Impactrueno;null;false
+30;Nidorina;76;planta;Placaje;Gruñido;null;false
+31;Nidoqueen;88;planta;Látigo Cepa;Ascuas;null;false
+32;Nidoran(M);105;tierra;Arañazo;Arañazo;null;false
+33;Nidorino;104;agua;Placaje;Arañazo;null;false
+34;Nidoking;37;agua;Placaje;Arañazo;null;false
+35;Clefairy;76;planta;Ascuas;Ascuas;null;false
+36;Clefable;85;planta;Placaje;Gruñido;null;false
+37;Vulpix;82;tierra;Pistola Agua;Arañazo;null;false
+38;Ninetales;102;agua;Gruñido;Placaje;null;false
+39;Jigglypuff;110;agua;Placaje;Ascuas;null;false
+40;Wigglytuff;80;agua;Placaje;Ascuas;null;false
+41;Zubat;83;tierra;Burbuja;Gruñido;null;false
+42;Golbat;81;tierra;Arañazo;Gruñido;null;false
+43;Oddish;90;fuego;Impactrueno;Ascuas;null;false
+44;Gloom;66;tierra;Arañazo;Pistola Agua;null;false
+45;Vileplume;85;planta;Impactrueno;Placaje;null;false
+46;Paras;43;planta;Placaje;Gruñido;null;false
+47;Parasect;86;planta;Pistola Agua;Impactrueno;null;false
+48;Venonat;100;planta;Pistola Agua;Pistola Agua;null;false
+49;Venomoth;75;planta;Ascuas;Pistola Agua;null;false
+50;Diglett;37;fuego;Pistola Agua;Burbuja;null;false
+51;Dugtrio;111;agua;Burbuja;Gruñido;null;false
+52;Meowth;48;tierra;Placaje;Impactrueno;null;false
+53;Persian;49;agua;Látigo Cepa;Látigo Cepa;null;false
+54;Psyduck;116;agua;Burbuja;Pistola Agua;null;false
+55;Golduck;44;agua;Burbuja;Burbuja;null;false
+56;Mankey;48;tierra;Arañazo;Arañazo;null;false
+57;Primeape;47;agua;Placaje;Burbuja;null;false
+58;Growlithe;110;planta;Burbuja;Gruñido;null;false
+59;Arcanine;103;planta;Burbuja;Gruñido;null;false
+60;Poliwag;81;agua;Burbuja;Impactrueno;null;false
+61;Poliwhirl;39;agua;Látigo Cepa;Impactrueno;null;false
+62;Poliwrath;89;agua;Placaje;Látigo Cepa;null;false
+63;Abra;52;tierra;Burbuja;Pistola Agua;null;false
+64;Kadabra;41;tierra;Gruñido;Burbuja;null;false
+65;Alakazam;119;fuego;Arañazo;Gruñido;null;false
+66;Machop;51;tierra;Placaje;Placaje;null;false
+67;Machoke;109;agua;Placaje;Ascuas;null;false
+68;Machamp;43;tierra;Gruñido;Pistola Agua;null;false
+69;Bellsprout;59;tierra;Burbuja;Gruñido;null;false
+70;Weepinbell;72;fuego;Arañazo;Pistola Agua;null;false
+71;Victreebel;41;planta;Ascuas;Pistola Agua;null;false
+72;Tentacool;89;agua;Burbuja;Ascuas;null;false
+73;Tentacruel;88;agua;Burbuja;Gruñido;null;false
+74;Geodude;77;tierra;Arañazo;Gruñido;null;false
+75;Graveler;60;tierra;Pistola Agua;Placaje;null;false
+76;Golem;61;tierra;Arañazo;Ascuas;null;false
+77;Ponyta;119;tierra;Arañazo;Gruñido;null;false
+78;Rapidash;50;planta;Arañazo;Impactrueno;null;false
+79;Slowpoke;83;tierra;Arañazo;Impactrueno;null;false
+80;Slowbro;62;tierra;Gruñido;Arañazo;null;false
+81;Magnemite;107;fuego;Arañazo;Arañazo;null;false
+82;Magneton;68;tierra;Arañazo;Burbuja;null;false
+83;Farfetch’d;44;tierra;Ascuas;Gruñido;null;false
+84;Doduo;45;tierra;Látigo Cepa;Pistola Agua;null;false
+85;Dodrio;76;agua;Látigo Cepa;Gruñido;null;false
+86;Seel;74;planta;Burbuja;Placaje;null;false
+87;Dewgong;56;planta;Ascuas;Placaje;null;false
+88;Grimer;75;agua;Ascuas;Arañazo;null;false
+89;Muk;76;fuego;Burbuja;Impactrueno;null;false
+90;Shellder;84;planta;Impactrueno;Gruñido;null;false
+91;Cloyster;98;fuego;Pistola Agua;Pistola Agua;null;false
+92;Gastly;106;fuego;Placaje;Ascuas;null;false
+93;Haunter;56;fuego;Gruñido;Gruñido;null;false
+94;Gengar;37;fuego;Ascuas;Arañazo;null;false
+95;Onix;39;tierra;Impactrueno;Látigo Cepa;null;false
+96;Drowzee;94;fuego;Pistola Agua;Placaje;null;false
+97;Hypno;110;fuego;Gruñido;Ascuas;null;false
+98;Krabby;60;agua;Ascuas;Arañazo;null;false
+99;Kingler;110;agua;Pistola Agua;Látigo Cepa;null;false
+100;Voltorb;45;fuego;Impactrueno;Burbuja;null;false
+101;Electrode;70;fuego;Placaje;Látigo Cepa;null;false
+102;Exeggcute;101;fuego;Arañazo;Placaje;null;false
+103;Exeggutor;99;tierra;Ascuas;Arañazo;null;false
+104;Cubone;46;tierra;Placaje;Arañazo;null;false
+105;Marowak;108;tierra;Arañazo;Látigo Cepa;null;false
+106;Hitmonlee;72;agua;Pistola Agua;Burbuja;null;false
+107;Hitmonchan;54;fuego;Látigo Cepa;Placaje;null;false
+108;Lickitung;73;planta;Arañazo;Ascuas;null;false
+109;Koffing;82;agua;Látigo Cepa;Arañazo;null;false
+110;Weezing;97;tierra;Pistola Agua;Burbuja;null;false
+111;Rhyhorn;111;tierra;Placaje;Placaje;null;false
+112;Rhydon;90;tierra;Ascuas;Burbuja;null;false
+113;Chansey;89;fuego;Gruñido;Gruñido;null;false
+114;Tangela;37;tierra;Placaje;Pistola Agua;null;false
+115;Kangaskhan;90;tierra;Burbuja;Impactrueno;null;false
+116;Horsea;78;agua;Ascuas;Arañazo;null;false
+117;Seadra;103;agua;Impactrueno;Pistola Agua;null;false
+118;Goldeen;64;planta;Látigo Cepa;Placaje;null;false
+119;Seaking;108;agua;Impactrueno;Ascuas;null;false
+120;Staryu;67;tierra;Pistola Agua;Placaje;null;false
+121;Starmie;59;planta;Placaje;Burbuja;null;false
+122;MrMime;74;planta;Látigo Cepa;Placaje;null;false
+123;Scyther;99;planta;Ascuas;Gruñido;null;false
+124;Jynx;64;fuego;Arañazo;Ascuas;null;false
+125;Electabuzz;110;planta;Burbuja;Pistola Agua;null;false
+126;Magmar;79;agua;Pistola Agua;Arañazo;null;false
+127;Pinsir;102;planta;Látigo Cepa;Placaje;null;false
+128;Tauros;85;tierra;Impactrueno;Gruñido;null;false
+129;Magikarp;78;agua;Látigo Cepa;Burbuja;null;false
+130;Gyarados;89;agua;Arañazo;Ascuas;null;false
+131;Lapras;80;agua;Ascuas;Impactrueno;null;false
+132;Ditto;43;tierra;Burbuja;Burbuja;null;false
+133;Eevee;60;planta;Placaje;Pistola Agua;null;false
+134;Vaporeon;53;tierra;Arañazo;Gruñido;null;false
+135;Jolteon;80;planta;Ascuas;Placaje;null;false
+136;Flareon;120;agua;Burbuja;Impactrueno;null;false
+137;Porygon;39;fuego;Pistola Agua;Placaje;null;false
+138;Omanyte;93;tierra;Látigo Cepa;Burbuja;null;false
+139;Omastar;108;tierra;Impactrueno;Ascuas;null;false
+140;Kabuto;112;fuego;Placaje;Gruñido;null;false
+141;Kabutops;120;planta;Gruñido;Gruñido;null;false
+142;Aerodactyl;46;tierra;Impactrueno;Látigo Cepa;null;false
+143;Snorlax;55;fuego;Burbuja;Burbuja;null;false
+144;Articuno;103;tierra;Impactrueno;Arañazo;null;false
+145;Zapdos;107;agua;Burbuja;Burbuja;null;false
+146;Moltres;51;fuego;Gruñido;Impactrueno;null;false
+147;Dratini;51;fuego;Placaje;Impactrueno;null;false
+148;Dragonair;84;planta;Placaje;Pistola Agua;null;false
+149;Dragonite;74;tierra;Pistola Agua;Burbuja;null;false
+150;Mewtwo;92;fuego;Impactrueno;Gruñido;null;false
+151;Mew;99;fuego;Látigo Cepa;Ascuas;null;false
