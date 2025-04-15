@@ -8,31 +8,27 @@ namespace ProyectoFinalProgramacion
 
         public static void IniciarSesion(string rutaUsuarios)
         {
-            /*
-             * JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true};
-            List<Usuario> usuarios = new List<Usuario>();
-            usuarios.Add(new Usuario("MiguelSecreto", "qwert_123"));
-            string json = JsonSerializer.Serialize(usuarios,opciones);
-            File.WriteAllText(rutaUsuarios, json);*/
+            string nombreUsuarioLogeado="";
+            string contrasenaUsuarioLogeado="";
 
-
-
-
-
-            /*string json = File.ReadAllText(rutaUsuarios);
-
-            List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
-
-            foreach (Usuario usuario in usuarios)
+            while (nombreUsuarioLogeado == "")
             {
-                Console.WriteLine(usuario);
+                Console.WriteLine("Dime tu nombre de usuario");
+                nombreUsuarioLogeado = Console.ReadLine();
+                if (nombreUsuarioLogeado == "")
+                {
+                    Console.WriteLine("No has introducido nada");
+                }
             }
-
-            File.ReadAllText(rutaUsuarios);*/
-            string nombre;
-            string contrasena;
-
-            File.ReadAllLines("");
+            while (contrasenaUsuarioLogeado == "")
+            {
+                Console.WriteLine("Dime tu contraseña");
+                contrasenaUsuarioLogeado = Console.ReadLine();
+                if (contrasenaUsuarioLogeado == "")
+                {
+                    Console.WriteLine("No has introducido nada");
+                }
+            }
         }
         public static void Registrarse(string rutaUsuarios)
         {
