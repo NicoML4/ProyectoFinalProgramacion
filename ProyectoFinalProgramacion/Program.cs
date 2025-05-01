@@ -10,6 +10,8 @@ namespace ProyectoFinalProgramacion
         {
             string nombreUsuarioLogeado="";
             string contrasenaUsuarioLogeado="";
+            Usuario usuarioLogeado;
+            string json = File.ReadAllText(rutaUsuarios);
 
             while (nombreUsuarioLogeado == "")
             {
@@ -29,38 +31,36 @@ namespace ProyectoFinalProgramacion
                     Console.WriteLine("No has introducido nada");
                 }
             }
+            Console.Clear();
+            usuarioLogeado = new Usuario(nombreUsuarioLogeado,contrasenaUsuarioLogeado);
+            List <Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
+            if (usuariosGuardados.Contains(usuarioLogeado))
+            {
+                Console.WriteLine($"Bienvenido {usuarioLogeado.NombreUsuario}!");
+            }
+            else 
+            {
+                Console.WriteLine("El usuario o contraseña que estás introduciendo es incorrecto");
+            }
+
         }
         public static void Registrarse(string rutaUsuarios)
         {
             string nombreUsuarioRegistro = "";
             string contrasenaRegistro = "";
             string contrasenaRegistroRepetida = "";
-            bool nombreDeUsuarioExistente = false;
 
             string json = File.ReadAllText(rutaUsuarios);
 
             List<Usuario> usuariosRegistrados = JsonSerializer.Deserialize<List<Usuario>>(json);
-            
-            while (nombreUsuarioRegistro == "" || !nombreDeUsuarioExistente)
+
+            while (nombreUsuarioRegistro == "")
             {
-                nombreDeUsuarioExistente = true;
                 Console.WriteLine("Dime tu nombre de usuario");
                 nombreUsuarioRegistro = Console.ReadLine();
                 if (nombreUsuarioRegistro == "")
                 {
                     Console.WriteLine("No has introducido nada");
-                }
-                else 
-                {
-                    foreach (Usuario usuariosLista in usuariosRegistrados)
-                    {
-                        if (usuariosLista.NombreUsuario == nombreUsuarioRegistro)
-                        {
-                            Console.WriteLine("Ese nombre de usuario ya existe");
-                            nombreDeUsuarioExistente = false;
-
-                        }
-                    }
                 }
             }
             while (contrasenaRegistro == "")
@@ -82,11 +82,20 @@ namespace ProyectoFinalProgramacion
                     Console.WriteLine("Ambas contraseñas no coinciden");
                 }
             }
-            Usuario usuarioNuevo = new Usuario(nombreUsuarioRegistro, contrasenaRegistro);
-            usuariosRegistrados.Add(usuarioNuevo);
-            JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true };
-            string datosSerializados = JsonSerializer.Serialize(usuariosRegistrados,opciones);
-            File.WriteAllText(rutaUsuarios,datosSerializados);
+            Console.Clear();
+            Usuario usuarioCreado = new Usuario(nombreUsuarioRegistro, contrasenaRegistro);
+            if (usuariosRegistrados.Exists(u => u.NombreUsuario == usuarioCreado.NombreUsuario))
+            {
+                Console.WriteLine("Ya hay un usuario con ese nombre");
+            }
+            else
+            {
+                Console.WriteLine("¡Usuario nuevo creado con éxito!");
+                usuariosRegistrados.Add(usuarioCreado);
+                JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true };
+                string datosSerializados = JsonSerializer.Serialize(usuariosRegistrados, opciones);
+                File.WriteAllText(rutaUsuarios, datosSerializados);
+            }
         }
         public static void Login()
         {
@@ -110,7 +119,7 @@ namespace ProyectoFinalProgramacion
                     case 2:
                         Registrarse(rutaUsuarios);
                         break;
-                    case 123456789:
+                    case 123456789: //Comprobador de que el usuario y contraseña existen
                         string json = File.ReadAllText(rutaUsuarios);
 
                         List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
@@ -120,12 +129,11 @@ namespace ProyectoFinalProgramacion
                             Console.WriteLine(usuario);
                         }
                         break;
-
-
                     default:
                         Console.WriteLine("Opcion no válida");
                         break;
                 }
+                
             }
         }
         public static void AbrirSobres()

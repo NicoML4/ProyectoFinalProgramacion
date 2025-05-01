@@ -1,4 +1,4 @@
-1;Bulbasaur;50;tierra;Ascuas;Pistola Agua;null;false
+1;Bulbasaur;50;tierra;Ascuas;Pistola Agua;null;false;../../../assets/bulbasaur.txt
 2;Ivysaur;51;tierra;Ascuas;Pistola Agua;null;false
 3;Venusaur;87;agua;Gruñido;Pistola Agua;null;false
 4;Charmander;105;agua;Impactrueno;Pistola Agua;null;false

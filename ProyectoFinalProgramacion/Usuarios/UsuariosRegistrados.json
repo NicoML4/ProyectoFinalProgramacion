@@ -6,5 +6,13 @@
   {
     "NombreUsuario": "eucaliptoSecreto",
     "Contrasena": "xxx"
+  },
+  {
+    "NombreUsuario": "patata",
+    "Contrasena": "11111"
+  },
+  {
+    "NombreUsuario": "Miguel",
+    "Contrasena": "j"
   }
 ]
