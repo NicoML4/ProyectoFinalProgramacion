@@ -6,12 +6,13 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
 
-        public static void IniciarSesion(string rutaUsuarios)
+        public static bool IniciarSesion(string rutaUsuarios)
         {
             string nombreUsuarioLogeado="";
             string contrasenaUsuarioLogeado="";
             Usuario usuarioLogeado;
             string json = File.ReadAllText(rutaUsuarios);
+            bool aceptado = false;
 
             while (nombreUsuarioLogeado == "")
             {
@@ -39,6 +40,7 @@ namespace ProyectoFinalProgramacion
                 if (usuariosGuardados.Contains(usuarioLogeado))
                 {
                     Console.WriteLine($"Bienvenido {usuarioLogeado.NombreUsuario}!");
+                    aceptado = true;
                 }
                 else
                 {
@@ -49,6 +51,7 @@ namespace ProyectoFinalProgramacion
             {
                 Console.WriteLine("Aun no se ha creado ningún usuario");
             }
+            return aceptado;
 
         }
         public static void Registrarse(string rutaUsuarios)
@@ -113,23 +116,23 @@ namespace ProyectoFinalProgramacion
                 creacionFichero.Close();
             }
         }
-        public static void Login()
+        public static void Login(string rutaUsuarios)
         {
-            string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
             string eleccion;
             bool valido = false;
-            while(!valido)
+            int numero;
+            while (!valido)
             { 
                 Console.WriteLine("1.Iniciar Sesión \n");
                 Console.WriteLine("2.Registrarse");
                 eleccion = Console.ReadLine();
 
-                int.TryParse(eleccion, out int numero);
+                int.TryParse(eleccion, out numero);
                
                 switch (numero)
                 {
                     case 1:
-                        IniciarSesion(rutaUsuarios);
+                        valido = IniciarSesion(rutaUsuarios);
                         break;
 
                     case 2:
@@ -149,7 +152,6 @@ namespace ProyectoFinalProgramacion
                         {
                             Console.WriteLine("Aun no se ha creado ningún usuario");
                         }
-
                         break;
                     default:
                         Console.WriteLine("Opcion no válida");
@@ -322,12 +324,12 @@ namespace ProyectoFinalProgramacion
         static void Main(string[] args)
         {
 
-
-            if (!File.Exists("../../../Usuarios/UsuariosRegistrados.json"))
+            string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
+            if (!File.Exists("rutaUsuarios"))
             {
-                File.WriteAllText("../../../Usuarios/UsuariosRegistrados.json","");
+                File.WriteAllText("rutaUsuarios", "");
             }
-            Login();
+            Login(rutaUsuarios);
             MenuOpciones();
         }
     }
