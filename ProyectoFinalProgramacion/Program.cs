@@ -33,14 +33,21 @@ namespace ProyectoFinalProgramacion
             }
             Console.Clear();
             usuarioLogeado = new Usuario(nombreUsuarioLogeado,contrasenaUsuarioLogeado);
-            List <Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
-            if (usuariosGuardados.Contains(usuarioLogeado))
+            try
             {
-                Console.WriteLine($"Bienvenido {usuarioLogeado.NombreUsuario}!");
+                List<Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
+                if (usuariosGuardados.Contains(usuarioLogeado))
+                {
+                    Console.WriteLine($"Bienvenido {usuarioLogeado.NombreUsuario}!");
+                }
+                else
+                {
+                    Console.WriteLine("El usuario o contraseña que estás introduciendo es incorrecto");
+                }
             }
-            else 
+            catch (JsonException e)
             {
-                Console.WriteLine("El usuario o contraseña que estás introduciendo es incorrecto");
+                Console.WriteLine("Aun no se ha creado ningún usuario");
             }
 
         }
@@ -49,10 +56,17 @@ namespace ProyectoFinalProgramacion
             string nombreUsuarioRegistro = "";
             string contrasenaRegistro = "";
             string contrasenaRegistroRepetida = "";
+            List<Usuario> usuariosRegistrados;
 
             string json = File.ReadAllText(rutaUsuarios);
-
-            List<Usuario> usuariosRegistrados = JsonSerializer.Deserialize<List<Usuario>>(json);
+            try
+            {
+                usuariosRegistrados = JsonSerializer.Deserialize<List<Usuario>>(json);
+            }
+            catch (JsonException e)
+            {
+                usuariosRegistrados = new List<Usuario>();
+            }
 
             while (nombreUsuarioRegistro == "")
             {
@@ -95,6 +109,8 @@ namespace ProyectoFinalProgramacion
                 JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true };
                 string datosSerializados = JsonSerializer.Serialize(usuariosRegistrados, opciones);
                 File.WriteAllText(rutaUsuarios, datosSerializados);
+                StreamWriter creacionFichero = new StreamWriter($"../../../Usuarios/{usuarioCreado.NombreUsuario}.txt");
+                creacionFichero.Close();
             }
         }
         public static void Login()
@@ -121,13 +137,19 @@ namespace ProyectoFinalProgramacion
                         break;
                     case 123456789: //Comprobador de que el usuario y contraseña existen
                         string json = File.ReadAllText(rutaUsuarios);
-
-                        List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
-
-                        foreach (Usuario usuario in usuarios)
+                        try
                         {
-                            Console.WriteLine(usuario);
+                            List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
+                            foreach (Usuario usuario in usuarios)
+                            {
+                                Console.WriteLine(usuario);
+                            }
                         }
+                        catch (JsonException e)
+                        {
+                            Console.WriteLine("Aun no se ha creado ningún usuario");
+                        }
+
                         break;
                     default:
                         Console.WriteLine("Opcion no válida");
@@ -299,8 +321,12 @@ namespace ProyectoFinalProgramacion
         
         static void Main(string[] args)
         {
-            string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
-            
+
+
+            if (!File.Exists("../../../Usuarios/UsuariosRegistrados.json"))
+            {
+                File.WriteAllText("../../../Usuarios/UsuariosRegistrados.json","");
+            }
             Login();
             MenuOpciones();
         }
