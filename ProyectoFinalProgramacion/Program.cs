@@ -5,7 +5,7 @@ namespace ProyectoFinalProgramacion
 {
     internal class Program
     {
-
+        const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion_SIN_ATAQUES.txt";
         public static bool IniciarSesion(string rutaUsuarios)
         {
             string nombreUsuarioLogeado="";
@@ -211,7 +211,12 @@ namespace ProyectoFinalProgramacion
                     // listado de tus pokemon
                     break;
                 case 2:
-                    // listado de todos los pokemons
+                    Console.Clear();
+                    string[] arrayPokemonCompleto = ListaPokemonCompleta(FICHERO_POKEMON);
+                    for (int i = 0; i < arrayPokemonCompleto.Length; i++)
+                    {
+                        Console.WriteLine(arrayPokemonCompleto[i]);
+                    }
                     break;
                 case 3:
                     // listado solo de los pokemons bloqueados
@@ -320,7 +325,13 @@ namespace ProyectoFinalProgramacion
             }    
         }
 
-        
+        public static string[] ListaPokemonCompleta(string fichero)
+        {
+            string[] arrayPokemons;
+            arrayPokemons = File.ReadAllLines(fichero);
+            //List<Pokemon> pokemonsCompletos = new List<Pokemon>();
+            return arrayPokemons;
+        }
         static void Main(string[] args)
         {
 
