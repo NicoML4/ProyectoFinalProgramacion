@@ -10,14 +10,17 @@ namespace ProyectoFinalProgramacion
     internal class ReproductorMusica
     {
         Process procesoMusica;
-        string RutaPredeterminada = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "musicaP.mp3");
+        readonly string RutaPredeterminada;
         bool EstarReproduciendo = false;
 
         public ReproductorMusica()
         {
+            // Construimos la ruta relativa a partir de la ruta de ejecucuion del proyecto
+            RutaPredeterminada = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Musica", "musicafondo.mp3"));
+
             if (!File.Exists(RutaPredeterminada))
             {
-                Console.WriteLine("Ruta inválida");
+                Console.WriteLine($"Ruta inválida: {RutaPredeterminada}");
             }
         }
 
@@ -26,7 +29,7 @@ namespace ProyectoFinalProgramacion
             if (!EstarReproduciendo && File.Exists(RutaPredeterminada))
             {
                 procesoMusica = new Process();
-                procesoMusica.StartInfo.FileName = "wmplayer.exe";
+                procesoMusica.StartInfo.FileName = "wmplayer.exe"; // Asegúrate de tener Windows Media Player instalado
                 procesoMusica.StartInfo.Arguments = $"\"{RutaPredeterminada}\"";
                 procesoMusica.StartInfo.UseShellExecute = true;
                 procesoMusica.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
@@ -55,7 +58,11 @@ namespace ProyectoFinalProgramacion
 
         public void SetEstadoReproduccion(bool estado)
         {
-            this.EstarReproduciendo = estado;
+            EstarReproduciendo = estado;
+        }
+        public string Tostring()
+        {
+            return EstarReproduciendo ? "Reproduciendo" : "Detenido";
         }
     }
 }

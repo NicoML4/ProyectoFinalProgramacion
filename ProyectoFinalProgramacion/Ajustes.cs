@@ -32,53 +32,89 @@ namespace ProyectoFinalProgramacion
 
         public void MostrarMenuAjustes()
         {
+            string[] opciones = {
+            "Reproducir música",
+            "Detener música",
+            "Reiniciar partida",
+            "Desbloquear todos los Pokémon",
+            "Volver al menú principal"
+        };
+
+            int opcionSeleccionada = 0;
             bool continuar = true;
+
+            Console.CursorVisible = false;
+
             while (continuar)
             {
                 Console.Clear();
-                Console.WriteLine("Bienvenido al menú de Ajustes");
-                Console.WriteLine("1. Reproducir música");
-                Console.WriteLine("2. Detener música");
-                Console.WriteLine("3. Reiniciar partida");
-                Console.WriteLine("4. Desbloquear todos los Pokémon");
-                Console.WriteLine("5. Volver al menú principal");
-                Console.Write("Elige una opción: ");
-
-                string opcion = Console.ReadLine();
-                bool acabarbucle = true;
-                switch (opcion)
+                Console.WriteLine("=== AJUSTES ===");
+                for (int i = 0; i < opciones.Length; i++)
                 {
-                    case "1":
-                        ReproducirMusica();
+                    if (i == opcionSeleccionada)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+
+                    Console.WriteLine($"{(i + 1)}. {opciones[i]}");
+
+                    Console.ResetColor();
+                }
+
+                ConsoleKeyInfo tecla = Console.ReadKey(true);
+
+                switch (tecla.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        opcionSeleccionada = (opcionSeleccionada - 1 + opciones.Length) % opciones.Length;
                         break;
-                    case "2":
-                        DetenerMusica();
+
+                    case ConsoleKey.DownArrow:
+                        opcionSeleccionada = (opcionSeleccionada + 1) % opciones.Length;
                         break;
-                    case "3":
-                        ReiniciarPartida();
-                        break;
-                    case "4":
-                        DesbloquearTodo();
-                        break;
-                    case "5":
-                        Program.MenuOpciones();
-                        acabarbucle = false;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Intenta nuevamente.");
+
+                    case ConsoleKey.Enter:
+                        EjecutarOpcion(opcionSeleccionada);
+                        if (opcionSeleccionada == 4) 
+                            continuar = false;
                         break;
                 }
             }
         }
 
+        private void EjecutarOpcion(int opcion)
+        {
+            Console.Clear();
+            switch (opcion)
+            {
+                case 0:
+                    ReproducirMusica();
+                    break;
+                case 1:
+                    DetenerMusica();
+                    break;
+                case 2:
+                    ReiniciarPartida();
+                    break;
+                case 3:
+                    DesbloquearTodo();
+                    break;
+                case 4:
+                    Console.CursorVisible = true;
+                    Program.MenuOpciones();
+                    break;
+            }
+        }
+
         public void ReiniciarPartida()
         {
-            // Lógica para reiniciar la partida
+            // Aquí puedes implementar la lógica para reiniciar la partida
         }
 
         public void DesbloquearTodo()
         {
-            // Lógica para desbloquear todos los Pokémon
+            // Aquí puedes implementar la lógica para desbloquear todos los Pokémon
         }
     }
 }
