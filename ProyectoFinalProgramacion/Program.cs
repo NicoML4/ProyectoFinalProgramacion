@@ -212,11 +212,8 @@ namespace ProyectoFinalProgramacion
                     break;
                 case 2:
                     Console.Clear();
-                    string[] arrayPokemonCompleto = ListaPokemonCompleta(FICHERO_POKEMON);
-                    for (int i = 0; i < arrayPokemonCompleto.Length; i++)
-                    {
-                        Console.WriteLine(arrayPokemonCompleto[i]);
-                    }
+                    List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+                    listaPokemons.Select(p => new {p.Id, p.Nombre}).ToList().ForEach(Console.WriteLine);
                     break;
                 case 3:
                     // listado solo de los pokemons bloqueados
@@ -325,13 +322,26 @@ namespace ProyectoFinalProgramacion
             }    
         }
 
-        public static string[] ListaPokemonCompleta(string fichero)
+        public static List<Pokemon> ListaPokemonCompleta(string fichero)
         {
-            string[] arrayPokemons;
-            arrayPokemons = File.ReadAllLines(fichero);
-            //List<Pokemon> pokemonsCompletos = new List<Pokemon>();
-            return arrayPokemons;
+            List<Pokemon> pokemons = new List<Pokemon>();
+
+            foreach (string linea in File.ReadLines(fichero))
+            {
+                string[] atributos = linea.Split(';');
+
+                int id = int.Parse(atributos[0]);
+                string nombre = atributos[1];
+                int vida = int.Parse(atributos[2]);
+                string tipo = atributos[3];
+
+
+                Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
+                pokemons.Add(objeto);
+            }
+            return pokemons;
         }
+
         static void Main(string[] args)
         {
 

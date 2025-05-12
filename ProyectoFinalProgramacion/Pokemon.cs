@@ -21,6 +21,11 @@ class Pokemon
     DateTime fechaObtencion;
     bool aSidoObtenido;
 
+    public int Id { get => id; set => id = value; }
+    public string Nombre { get => nombre; set => nombre = value; }
+    public int Vida { get => vida; set => vida = value; }
+    public string Tipo { get => tipo; set => tipo = value; }
+
     public int GetId()
     {
         return id;
