@@ -21,6 +21,7 @@ class Pokemon
     private Ataque ataque1;
     private Ataque ataque2;
     private DateTime fechaObtencion;
+    private string asset;
     public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2)
         {
             this.id = id;
@@ -30,6 +31,7 @@ class Pokemon
             this.ataque1 = new Ataque(ataque1);
             this.ataque2 = new Ataque(ataque2);
             fechaObtencion = DateTime.Now;
+            asset = "../../../assets/"+nombre+".txt";
         }
 
     public int GetId()
@@ -60,6 +62,11 @@ class Pokemon
     {
         return ataque2;
     }
+    public string getAsset()
+    {
+        return asset;
+    }
+    
     public void SetId(int id)
     {
         this.id = id;
@@ -88,7 +95,8 @@ class Pokemon
     {
         this.ataque2 = new Ataque(ataque2);
     }
-
-
-
+    public void setAssset(string enlace)
+    {
+        asset = enlace;
+    }
 }
