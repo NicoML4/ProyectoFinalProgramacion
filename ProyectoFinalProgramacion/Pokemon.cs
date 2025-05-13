@@ -19,7 +19,6 @@ class Pokemon
     //Ataque ataque1
     //Ataque ataque2
     DateTime fechaObtencion;
-    bool aSidoObtenido;
 
     public int Id { get => id; set => id = value; }
     public string Nombre { get => nombre; set => nombre = value; }
@@ -46,10 +45,7 @@ class Pokemon
     {
         return fechaObtencion;
     }
-    public bool GetASidoObtenido()
-    {
-        return aSidoObtenido;
-    }
+
     public void SetId(int id)
     {
         this.id = id;
@@ -70,17 +66,14 @@ class Pokemon
     {
         this.fechaObtencion = fechaObtencion;
     }
-    public void SetASidoObtenido(bool aSidoObtenido)
-    {
-        this.aSidoObtenido = aSidoObtenido;
-    }
+
     public Pokemon(int id, string nombre, int vida, string tipo)
     {
         this.id = id;
         this.nombre = nombre;
         this.vida = vida;
         this.tipo = tipo;
-        aSidoObtenido = false;
+
     }
     
 
