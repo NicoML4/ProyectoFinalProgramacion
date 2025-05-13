@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProyectoFinalProgramacion;
 
 /*
     Abres el archivo → lees la línea → si es "00/00/0000", lo conviertes a DateTime.MinValue.
@@ -12,18 +14,23 @@ using System.Threading.Tasks;
 
 class Pokemon
 {
-    int id;
-    string nombre;
-    int vida;
-    string tipo;
-    //Ataque ataque1
-    //Ataque ataque2
-    DateTime fechaObtencion;
-
-    public int Id { get => id; set => id = value; }
-    public string Nombre { get => nombre; set => nombre = value; }
-    public int Vida { get => vida; set => vida = value; }
-    public string Tipo { get => tipo; set => tipo = value; }
+    private int id;
+    private string nombre;
+    private int vida;
+    private string tipo;
+    private Ataque ataque1;
+    private Ataque ataque2;
+    private DateTime fechaObtencion;
+    public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.vida = vida;
+            this.tipo = tipo;
+            this.ataque1 = new Ataque(ataque1);
+            this.ataque2 = new Ataque(ataque2);
+            fechaObtencion = DateTime.Now;
+        }
 
     public int GetId()
     {
@@ -45,7 +52,14 @@ class Pokemon
     {
         return fechaObtencion;
     }
-
+    public Ataque GetAtaque1()
+    { 
+        return ataque1;
+    }
+    public Ataque GetAtaque2()
+    {
+        return ataque2;
+    }
     public void SetId(int id)
     {
         this.id = id;
@@ -66,15 +80,15 @@ class Pokemon
     {
         this.fechaObtencion = fechaObtencion;
     }
-
-    public Pokemon(int id, string nombre, int vida, string tipo)
-    {
-        this.id = id;
-        this.nombre = nombre;
-        this.vida = vida;
-        this.tipo = tipo;
-
+    public void SetAtaque1(string ataque1)
+    { 
+        this.ataque1 = new Ataque(ataque1);
     }
-    
+    public void SetAtaque2(string ataque2)
+    {
+        this.ataque2 = new Ataque(ataque2);
+    }
+
+
 
 }
