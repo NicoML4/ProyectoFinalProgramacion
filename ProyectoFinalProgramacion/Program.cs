@@ -212,11 +212,11 @@ namespace ProyectoFinalProgramacion
                     // listado de tus pokemon
                     break;
                 case 2:
-                    /*
+                    
                     Console.Clear();
                     List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
-                    listaPokemons.Select(p => new {p.GetId(), p.GetNombre()}).ToList().ForEach(Console.WriteLine);
-                    break;*/
+                    listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
+                    break;
                 case 3:
                     // listado solo de los pokemons bloqueados
                     break;
@@ -339,7 +339,7 @@ namespace ProyectoFinalProgramacion
 
 
                 Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
-                pokemons.Add(objeto);*/
+                pokemons.Add(objeto);
             }
             return pokemons;
         }
