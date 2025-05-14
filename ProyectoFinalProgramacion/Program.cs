@@ -6,11 +6,10 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
         const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion_SIN_ATAQUES.txt";
-        public static bool IniciarSesion(string rutaUsuarios)
+        public static bool IniciarSesion(string rutaUsuarios,out Usuario usuarioGuardado)
         {
             string nombreUsuarioLogeado="";
             string contrasenaUsuarioLogeado="";
-            Usuario usuarioLogeado;
             string json = File.ReadAllText(rutaUsuarios);
             bool aceptado = false;
 
@@ -33,13 +32,13 @@ namespace ProyectoFinalProgramacion
                 }
             }
             Console.Clear();
-            usuarioLogeado = new Usuario(nombreUsuarioLogeado,contrasenaUsuarioLogeado);
+            usuarioGuardado = new Usuario(nombreUsuarioLogeado,contrasenaUsuarioLogeado);
             try
             {
                 List<Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
-                if (usuariosGuardados.Contains(usuarioLogeado))
+                if (usuariosGuardados.Contains(usuarioGuardado))
                 {
-                    Console.WriteLine($"Bienvenido {usuarioLogeado.NombreUsuario}!");
+                    Console.WriteLine($"Bienvenido {usuarioGuardado.NombreUsuario}!");
                     aceptado = true;
                 }
                 else
@@ -116,11 +115,12 @@ namespace ProyectoFinalProgramacion
                 creacionFichero.Close();
             }
         }
-        public static void Login(string rutaUsuarios)
+        public static Usuario Login(string rutaUsuarios)
         {
             string eleccion;
             bool valido = false;
             int numero;
+            Usuario usuarioGuardado = null;
             while (!valido)
             { 
                 Console.WriteLine("1.Iniciar Sesión \n");
@@ -132,7 +132,7 @@ namespace ProyectoFinalProgramacion
                 switch (numero)
                 {
                     case 1:
-                        valido = IniciarSesion(rutaUsuarios);
+                        valido = IniciarSesion(rutaUsuarios,out usuarioGuardado);
                         break;
 
                     case 2:
@@ -159,6 +159,7 @@ namespace ProyectoFinalProgramacion
                 }
                 
             }
+            return usuarioGuardado;
         }
         public static void AbrirSobres()
         {
@@ -300,7 +301,7 @@ namespace ProyectoFinalProgramacion
             Console.WriteLine("3. Atrás");
         }
 
-        public static void MenuOpciones()
+        public static void MenuOpciones(Usuario usuarioLogeado)
         {
             Console.Clear();
             Console.WriteLine("1. Abrir sobres");
@@ -351,8 +352,8 @@ namespace ProyectoFinalProgramacion
             {
                 File.WriteAllText("rutaUsuarios", "");
             }
-            Login(rutaUsuarios);
-            MenuOpciones();
+            Usuario usuarioLogeado = Login(rutaUsuarios);
+            MenuOpciones(usuarioLogeado);
         }
     }
 }
