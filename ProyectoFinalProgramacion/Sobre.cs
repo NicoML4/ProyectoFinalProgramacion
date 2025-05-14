@@ -55,6 +55,7 @@ namespace ProyectoFinalProgramacion
                     pokemons[numero].SetFechaObtencion(DateTime.Now);
                     pokemonsUsuario.Add(pokemons[numero]);
                 }
+                pokemonsUsuario.Sort((a,b) => a.GetId().CompareTo(b.GetId()));
             }
             File.WriteAllLines(rutaUsuario, pokemonsUsuario.Select(p => p.ToString()).ToArray());
         }
