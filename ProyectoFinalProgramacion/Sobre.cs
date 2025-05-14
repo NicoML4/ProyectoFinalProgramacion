@@ -8,7 +8,7 @@ namespace ProyectoFinalProgramacion
 {
     internal static class Sobre
     {
-        private static void Cargar()
+        /*private static void Cargar()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             string[] separacion;
@@ -19,10 +19,10 @@ namespace ProyectoFinalProgramacion
                 separacion = pokemon.Split(';');
                 pokemons.Add(new Pokemon(separacion[0],))
             }
-        }
+        }*/
         public static void AbrirSobre()
         {
-            Cargar();
+            //Cargar();
 
         }
     }
