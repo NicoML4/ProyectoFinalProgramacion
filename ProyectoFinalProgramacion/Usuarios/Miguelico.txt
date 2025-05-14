@@ -1,0 +1,5 @@
+68;Machamp;43;tierra;Gruñido;Pistola Agua;14/05/2025 22:02:30;../../../assets/machamp.txt
+46;Paras;43;planta;Placaje;Gruñido;14/05/2025 22:02:30;../../../assets/paras.txt
+6;Charizard;118;agua;Gruñido;Placaje;14/05/2025 22:02:30;../../../assets/charizard.txt
+123;Scyther;99;planta;Ascuas;Gruñido;14/05/2025 22:02:30;../../../assets/scyther.txt
+129;Magikarp;78;agua;Látigo Cepa;Burbuja;14/05/2025 22:02:30;../../../assets/magikarp.txt

@@ -161,15 +161,16 @@ namespace ProyectoFinalProgramacion
             }
             return usuarioGuardado;
         }
-        public static void AbrirSobres()
+        public static void AbrirSobres(Usuario usuarioLogeado)
         {
             Console.Clear();
-            MenuSobres();
-            Console.Write("Selecciona un sobre: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
+            int opcion;
             bool salir = false;
             while(!salir)
             {
+                MenuSobres();
+                Console.Write("Selecciona un sobre: ");
+                opcion = Convert.ToInt32(Console.ReadLine());
                 switch (opcion)
                 {
                     case 1:
@@ -185,7 +186,8 @@ namespace ProyectoFinalProgramacion
                         //SobrePlanta();
                         break;
                     case 5:
-                        //SobreMixto();
+                        Sobre.AbrirSobre(usuarioLogeado);
+
                         break;
                     case 6:
                         salir = true;
@@ -332,7 +334,7 @@ namespace ProyectoFinalProgramacion
                 switch (opcion)
                 {
                     case 1:
-                        AbrirSobres();
+                        AbrirSobres(usuarioLogeado);
                         break;
                     case 2:
                         Pokedex();
