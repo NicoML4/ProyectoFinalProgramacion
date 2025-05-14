@@ -20,9 +20,9 @@ class Pokemon
     private string tipo;
     private Ataque ataque1;
     private Ataque ataque2;
-    private DateTime fechaObtencion;
+    private DateTime? fechaObtencion; //fecha.hasvalue  
     private string asset;
-    public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2,string asset)
+    public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2,DateTime? fechaObtencion,string asset)
         {
             this.id = id;
             this.nombre = nombre;
@@ -30,7 +30,7 @@ class Pokemon
             this.tipo = tipo;
             this.ataque1 = new Ataque(ataque1);
             this.ataque2 = new Ataque(ataque2);
-            fechaObtencion = DateTime.Now;
+            this.fechaObtencion = fechaObtencion;
             this.asset = asset;
         }
 
@@ -50,7 +50,7 @@ class Pokemon
     {
         return tipo;
     }
-    public DateTime GetFechaObtencion()
+    public DateTime? GetFechaObtencion()
     {
         return fechaObtencion;
     }
@@ -83,7 +83,7 @@ class Pokemon
     {
         this.tipo = tipo;
     }
-    public void SetFechaObtencion(DateTime fechaObtencion)
+    public void SetFechaObtencion(DateTime? fechaObtencion)
     {
         this.fechaObtencion = fechaObtencion;
     }
