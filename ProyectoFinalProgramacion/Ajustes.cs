@@ -85,28 +85,33 @@ namespace ProyectoFinalProgramacion
 
         private void EjecutarOpcion(int opcion)
         {
+            bool salir = true;
             Console.Clear();
-            switch (opcion)
+            while (!salir)
             {
-                case 0:
-                    ReproducirMusica();
-                    break;
-                case 1:
-                    DetenerMusica();
-                    break;
-                case 2:
-                    ReiniciarPartida();
-                    break;
-                case 3:
-                    DesbloquearTodo();
-                    break;
-                case 4:
-                    //Cambiar esto que esta mal//
-                    
-                    /*
-                    Console.CursorVisible = true;
-                    Program.MenuOpciones();*/
-                    break;
+                switch (opcion)
+                {
+                    case 0:
+                        ReproducirMusica();
+                        break;
+                    case 1:
+                        DetenerMusica();
+                        break;
+                    case 2:
+                        ReiniciarPartida();
+                        break;
+                    case 3:
+                        DesbloquearTodo();
+                        break;
+                    case 4:
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida. Presiona cualquier tecla para continuar...");
+                        Console.ReadKey();
+                        salir = true;
+                        break;
+                }
             }
         }
 

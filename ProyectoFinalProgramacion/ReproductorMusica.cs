@@ -29,7 +29,7 @@ namespace ProyectoFinalProgramacion
             if (!EstarReproduciendo && File.Exists(RutaPredeterminada))
             {
                 procesoMusica = new Process();
-                procesoMusica.StartInfo.FileName = "wmplayer.exe"; // Asegúrate de tener Windows Media Player instalado
+                procesoMusica.StartInfo.FileName = "wmplayer.exe";
                 procesoMusica.StartInfo.Arguments = $"\"{RutaPredeterminada}\"";
                 procesoMusica.StartInfo.UseShellExecute = true;
                 procesoMusica.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;

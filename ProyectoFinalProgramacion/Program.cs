@@ -318,26 +318,39 @@ namespace ProyectoFinalProgramacion
 
         public static void MenuOpciones(Usuario usuarioLogeado)
         {
-            Console.WriteLine($"{usuarioLogeado.NombreUsuario},{usuarioLogeado.Contrasena}");
-            Console.Clear();
-            Console.WriteLine("1. Abrir sobres");
-            Console.WriteLine("2. Album");
-            Console.WriteLine("3. Ajustes");
-            Console.Write("Introduce una opción: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            switch(opcion)
+            bool salir = false;
+            while (!salir)
             {
-                case 1:
-                    AbrirSobres();
-                    break;
-                case 2:
-                    Pokedex();
-                    break;
-                case 3:
-                    Ajustes ajustes = new Ajustes();
-                    ajustes.MostrarMenuAjustes();
-                    break;
-            }    
+                Console.WriteLine($"{usuarioLogeado.NombreUsuario},{usuarioLogeado.Contrasena}");
+                Console.Clear();
+                Console.WriteLine("1. Abrir sobres");
+                Console.WriteLine("2. Album");
+                Console.WriteLine("3. Ajustes");
+                Console.WriteLine("4. Salir");
+                Console.Write("Introduce una opción: ");
+                int opcion = Convert.ToInt32(Console.ReadLine());
+                switch (opcion)
+                {
+                    case 1:
+                        AbrirSobres();
+                        break;
+                    case 2:
+                        Pokedex();
+                        break;
+                    case 3:
+                        Ajustes ajustes = new Ajustes();
+                        ajustes.MostrarMenuAjustes();
+                        Console.CursorVisible = true;
+                        break;
+                    case 4:
+                        Console.WriteLine("Saliendo");
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción no válida");
+                        break;
+                }
+            }
         }
 
         public static List<Pokemon> ListaPokemonCompleta(string fichero)
