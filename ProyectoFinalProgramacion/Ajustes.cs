@@ -101,8 +101,11 @@ namespace ProyectoFinalProgramacion
                     DesbloquearTodo();
                     break;
                 case 4:
+                    //Cambiar esto que esta mal//
+                    
+                    /*
                     Console.CursorVisible = true;
-                    Program.MenuOpciones();
+                    Program.MenuOpciones();*/
                     break;
             }
         }

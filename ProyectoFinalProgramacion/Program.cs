@@ -185,7 +185,7 @@ namespace ProyectoFinalProgramacion
                     //SobreMixto();
                     break;
                 case 6:
-                    MenuOpciones();
+                   /* MenuOpciones();*/
                     break;
             }
         }
@@ -226,7 +226,7 @@ namespace ProyectoFinalProgramacion
                     SwitchTipos();
                     break;
                 case 5:
-                    MenuOpciones();
+                    /*MenuOpciones();*/
                     break;
             }
         }
@@ -289,7 +289,7 @@ namespace ProyectoFinalProgramacion
                     // desbloquear todo
                     break;
                 case 3:
-                    MenuOpciones();
+                    /*MenuOpciones();*/
                     break;
             }
         }
@@ -303,6 +303,7 @@ namespace ProyectoFinalProgramacion
 
         public static void MenuOpciones(Usuario usuarioLogeado)
         {
+            Console.WriteLine($"{usuarioLogeado.NombreUsuario},{usuarioLogeado.Contrasena}");
             Console.Clear();
             Console.WriteLine("1. Abrir sobres");
             Console.WriteLine("2. Album");
@@ -338,8 +339,8 @@ namespace ProyectoFinalProgramacion
                 string tipo = atributos[3];
 
 
-                Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
-                pokemons.Add(objeto);
+                /*Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
+                pokemons.Add(objeto);*/
             }
             return pokemons;
         }
