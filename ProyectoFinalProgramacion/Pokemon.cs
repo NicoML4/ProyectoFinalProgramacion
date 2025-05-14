@@ -22,7 +22,7 @@ class Pokemon
     private Ataque ataque2;
     private DateTime fechaObtencion;
     private string asset;
-    public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2)
+    public Pokemon(int id, string nombre, int vida, string tipo,string ataque1,string ataque2,string asset)
         {
             this.id = id;
             this.nombre = nombre;
@@ -31,7 +31,7 @@ class Pokemon
             this.ataque1 = new Ataque(ataque1);
             this.ataque2 = new Ataque(ataque2);
             fechaObtencion = DateTime.Now;
-            asset = "../../../assets/"+nombre+".txt";
+            this.asset = asset;
         }
 
     public int GetId()
