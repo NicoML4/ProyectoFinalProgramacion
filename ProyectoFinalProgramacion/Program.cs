@@ -167,26 +167,30 @@ namespace ProyectoFinalProgramacion
             MenuSobres();
             Console.Write("Selecciona un sobre: ");
             int opcion = Convert.ToInt32(Console.ReadLine());
-            switch(opcion)
+            bool salir = false;
+            while(!salir)
             {
-                case 1:
-                    //SobreFuego();
-                    break;
-                case 2:
-                    //SobreAgua();
-                    break;
-                case 3:
-                    //SobreTierra();
-                    break;
-                case 4:
-                    //SobrePlanta();
-                    break;
-                case 5:
-                    //SobreMixto();
-                    break;
-                case 6:
-                   /* MenuOpciones();*/
-                    break;
+                switch (opcion)
+                {
+                    case 1:
+                        //SobreFuego();
+                        break;
+                    case 2:
+                        //SobreAgua();
+                        break;
+                    case 3:
+                        //SobreTierra();
+                        break;
+                    case 4:
+                        //SobrePlanta();
+                        break;
+                    case 5:
+                        //SobreMixto();
+                        break;
+                    case 6:
+                        salir = true;
+                        break;
+                }
             }
         }
 
@@ -206,29 +210,32 @@ namespace ProyectoFinalProgramacion
             MenuPokedex();
             Console.Write("Introduce una opción: ") ;
             int opcion = Convert.ToInt32(Console.ReadLine());
-            switch(opcion)
+            bool salir = false;
+            while(!salir)
             {
-                case 1:
-                    // listado de tus pokemon
-                    break;
-                case 2:
-                    
-                    Console.Clear();
-                    List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
-                    listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
-                    break;
-                case 3:
-                    // listado solo de los pokemons bloqueados
-                    break;
-                case 4:
-                    Console.Clear();
-                    MenuTipos();
-                    SwitchTipos();
-                    break;
-                case 5:
-                    /*MenuOpciones();*/
-                    break;
-            }
+                switch (opcion)
+                {
+                    case 1:
+                        // listado de tus pokemon
+                        break;
+                    case 2:
+                        Console.Clear();
+                        List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+                        listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
+                        break;
+                    case 3:
+                        // listado solo de los pokemons bloqueados
+                        break;
+                    case 4:
+                        Console.Clear();
+                        MenuTipos();
+                        SwitchTipos();
+                        break;
+                    case 5:
+                        salir = true;
+                        break;
+                }
+            }  
         }
 
         public static void MenuPokedex()
@@ -254,23 +261,27 @@ namespace ProyectoFinalProgramacion
         {
             Console.Write("Introduce la opción: ");
             int opcion = Convert.ToInt32(Console.ReadLine());
-            switch(opcion)
+            bool salir = false;
+            while (!salir) 
             {
-                case 1:
-                    // linq tipo fuego
-                    break;
-                case 2:
-                    // linq tipo agua
-                    break;
-                case 3:
-                    // linq tipo tierra
-                    break;
-                case 4:
-                    // linq tipo planta
-                    break;
-                case 5:
-                    Pokedex();
-                    break;
+                switch (opcion)
+                {
+                    case 1:
+                        // linq tipo fuego
+                        break;
+                    case 2:
+                        // linq tipo agua
+                        break;
+                    case 3:
+                        // linq tipo tierra
+                        break;
+                    case 4:
+                        // linq tipo planta
+                        break;
+                    case 5:
+                        salir = true;
+                        break;
+                }
             }
         }
 
@@ -280,17 +291,21 @@ namespace ProyectoFinalProgramacion
             MenuAjustes();
             Console.Write("Introduce la opción: ");
             int opcion = Convert.ToInt32(Console.ReadLine());
-            switch (opcion) 
+            bool salir = false;
+            while (!salir)
             {
-                case 1:
-                    // reiniciar partida
-                    break;
-                case 2:
-                    // desbloquear todo
-                    break;
-                case 3:
-                    /*MenuOpciones();*/
-                    break;
+                switch (opcion)
+                {
+                    case 1:
+                        // reiniciar partida
+                        break;
+                    case 2:
+                        // desbloquear todo
+                        break;
+                    case 3:
+                        salir = true;
+                        break;
+                }
             }
         }
 
