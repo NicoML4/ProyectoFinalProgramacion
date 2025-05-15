@@ -143,10 +143,13 @@ namespace ProyectoFinalProgramacion
             switch (opcion)
             {
                 case 0:
+                    SobreFuego.AbrirSobre(usuarioLogeado);
                     break;
                 case 1:
+                    SobreAgua.AbrirSobre(usuarioLogeado);
                     break;
                 case 2:
+                    SobreTierra.AbrirSobre(usuarioLogeado);
                     break;
                 case 3:
                     SobrePlanta.AbrirSobre(usuarioLogeado);
