@@ -282,14 +282,8 @@ namespace ProyectoFinalProgramacion
             foreach (string linea in File.ReadLines(fichero))
             {
                 string[] atributos = linea.Split(';');
-                int id = int.Parse(atributos[0]);
-                string nombre = atributos[1];
-                int vida = int.Parse(atributos[2]);
-                string tipo = atributos[3];
-                string ataque1 = atributos[4];
-                string ataque2 = atributos[5];
-                string asset = atributos[6];
-                Pokemon pokemon = new Pokemon(id, nombre, vida, tipo, ataque1, ataque2, asset);
+                Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
+                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]),atributos[7]);
                 pokemons.Add(pokemon);
             }
             return pokemons;
