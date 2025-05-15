@@ -28,6 +28,15 @@ namespace ProyectoFinalProgramacion
             }
             return damage;
         }
+
+        public void SetNombre(string nombre)
+        { 
+            this.nombre = nombre;
+        }
+        public string GetNombre()
+        {
+            return nombre;
+        }
         public override string ToString()
         {
             return $"Ataque: {nombre}";

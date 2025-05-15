@@ -10,5 +10,13 @@
   {
     "NombreUsuario": "hola",
     "Contrasena": "1234"
+  },
+  {
+    "NombreUsuario": "Patata",
+    "Contrasena": "patata"
+  },
+  {
+    "NombreUsuario": "Eucalipto",
+    "Contrasena": "Eucalipto"
   }
 ]

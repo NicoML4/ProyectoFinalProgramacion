@@ -1,0 +1,5 @@
+10;Caterpie;75;planta;Arañazo;Impactrueno;15/05/2025 2:13:30;../../../assets/caterpie.txt
+15;Beedrill;86;planta;Arañazo;Pistola Agua;15/05/2025 2:13:30;../../../assets/beedrill.txt
+75;Graveler;60;tierra;Pistola Agua;Placaje;15/05/2025 2:13:30;../../../assets/graveler.txt
+117;Seadra;103;agua;Impactrueno;Pistola Agua;15/05/2025 2:13:30;../../../assets/seadra.txt
+141;Kabutops;120;planta;Gruñido;Gruñido;15/05/2025 2:13:30;../../../assets/kabutops.txt

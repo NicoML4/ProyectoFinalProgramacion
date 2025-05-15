@@ -5,53 +5,51 @@ namespace ProyectoFinalProgramacion
 {
     internal class Program
     {
-        const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion_SIN_ATAQUES.txt";
-        public static bool IniciarSesion(string rutaUsuarios,out Usuario usuarioGuardado)
+        const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
+        public static bool IniciarSesion(string rutaUsuarios, out Usuario usuarioGuardado)
         {
-            string nombreUsuarioLogeado="";
-            string contrasenaUsuarioLogeado="";
+            string nombreUsuarioLogeado = "";
+            string contrasenaUsuarioLogeado = "";
             string json = File.ReadAllText(rutaUsuarios);
             bool aceptado = false;
-
             while (nombreUsuarioLogeado == "")
             {
-                Console.WriteLine("Dime tu nombre de usuario");
+                ConsolaInterfaz.WriteLineCentr("Dime tu nombre de usuario");
                 nombreUsuarioLogeado = Console.ReadLine();
                 if (nombreUsuarioLogeado == "")
                 {
-                    Console.WriteLine("No has introducido nada");
+                    ConsolaInterfaz.WriteLineCentr("No has introducido nada");
                 }
             }
             while (contrasenaUsuarioLogeado == "")
             {
-                Console.WriteLine("Dime tu contraseña");
+                ConsolaInterfaz.WriteLineCentr("Dime tu contraseña");
                 contrasenaUsuarioLogeado = Console.ReadLine();
                 if (contrasenaUsuarioLogeado == "")
                 {
-                    Console.WriteLine("No has introducido nada");
+                    ConsolaInterfaz.WriteLineCentr("No has introducido nada");
                 }
             }
             Console.Clear();
-            usuarioGuardado = new Usuario(nombreUsuarioLogeado,contrasenaUsuarioLogeado);
+            usuarioGuardado = new Usuario(nombreUsuarioLogeado, contrasenaUsuarioLogeado);
             try
             {
                 List<Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
                 if (usuariosGuardados.Contains(usuarioGuardado))
                 {
-                    Console.WriteLine($"Bienvenido {usuarioGuardado.NombreUsuario}!");
+                    ConsolaInterfaz.WriteLineCentr($"Bienvenido {usuarioGuardado.NombreUsuario}!");
                     aceptado = true;
                 }
                 else
                 {
-                    Console.WriteLine("El usuario o contraseña que estás introduciendo es incorrecto");
+                    ConsolaInterfaz.WriteLineCentr("El usuario o contraseña que estás introduciendo es incorrecto");
                 }
             }
             catch (JsonException e)
             {
-                Console.WriteLine("Aun no se ha creado ningún usuario");
+                ConsolaInterfaz.WriteLineCentr("Aun no se ha creado ningún usuario");
             }
             return aceptado;
-
         }
         public static void Registrarse(string rutaUsuarios)
         {
@@ -59,7 +57,6 @@ namespace ProyectoFinalProgramacion
             string contrasenaRegistro = "";
             string contrasenaRegistroRepetida = "";
             List<Usuario> usuariosRegistrados;
-
             string json = File.ReadAllText(rutaUsuarios);
             try
             {
@@ -69,44 +66,42 @@ namespace ProyectoFinalProgramacion
             {
                 usuariosRegistrados = new List<Usuario>();
             }
-
             while (nombreUsuarioRegistro == "")
             {
-                Console.WriteLine("Dime tu nombre de usuario");
+                ConsolaInterfaz.WriteLineCentr("Dime tu nombre de usuario");
                 nombreUsuarioRegistro = Console.ReadLine();
                 if (nombreUsuarioRegistro == "")
                 {
-                    Console.WriteLine("No has introducido nada");
+                    ConsolaInterfaz.WriteLineCentr("No has introducido nada");
                 }
             }
             while (contrasenaRegistro == "")
             {
-                Console.WriteLine("Dime tu contraseña");
+                ConsolaInterfaz.WriteLineCentr("Dime tu contraseña");
                 contrasenaRegistro = Console.ReadLine();
                 if (contrasenaRegistro == "")
                 {
-                    Console.WriteLine("No has introducido nada");
+                    ConsolaInterfaz.WriteLineCentr("No has introducido nada");
                 }
             }
-
             while (contrasenaRegistro != contrasenaRegistroRepetida)
             {
-                Console.WriteLine("Repiteme la contraseña");
+                ConsolaInterfaz.WriteLineCentr("Repiteme la contraseña");
                 contrasenaRegistroRepetida = Console.ReadLine();
                 if (contrasenaRegistro != contrasenaRegistroRepetida)
                 {
-                    Console.WriteLine("Ambas contraseñas no coinciden");
+                    ConsolaInterfaz.WriteLineCentr("Ambas contraseñas no coinciden");
                 }
             }
             Console.Clear();
             Usuario usuarioCreado = new Usuario(nombreUsuarioRegistro, contrasenaRegistro);
             if (usuariosRegistrados.Exists(u => u.NombreUsuario == usuarioCreado.NombreUsuario))
             {
-                Console.WriteLine("Ya hay un usuario con ese nombre");
+                ConsolaInterfaz.WriteLineCentr("Ya hay un usuario con ese nombre");
             }
             else
             {
-                Console.WriteLine("¡Usuario nuevo creado con éxito!");
+                ConsolaInterfaz.WriteLineCentr("¡Usuario nuevo creado con éxito!");
                 usuariosRegistrados.Add(usuarioCreado);
                 JsonSerializerOptions opciones = new JsonSerializerOptions { WriteIndented = true };
                 string datosSerializados = JsonSerializer.Serialize(usuariosRegistrados, opciones);
@@ -117,265 +112,204 @@ namespace ProyectoFinalProgramacion
         }
         public static Usuario Login(string rutaUsuarios)
         {
-            string eleccion;
-            bool valido = false;
-            int numero;
+            string[] opcionesLogin = {
+                "Iniciar Sesión",
+                "Registrarse"
+            };
+            int opcionSeleccionada = ConsolaInterfaz.SeleccionarOpcion(opcionesLogin);
             Usuario usuarioGuardado = null;
-            while (!valido)
-            { 
-                Console.WriteLine("1.Iniciar Sesión \n");
-                Console.WriteLine("2.Registrarse");
-                eleccion = Console.ReadLine();
-
-                int.TryParse(eleccion, out numero);
-               
-                switch (numero)
-                {
-                    case 1:
-                        valido = IniciarSesion(rutaUsuarios,out usuarioGuardado);
-                        break;
-
-                    case 2:
-                        Registrarse(rutaUsuarios);
-                        break;
-                    case 123456789: //Comprobador de que el usuario y contraseña existen
-                        string json = File.ReadAllText(rutaUsuarios);
-                        try
-                        {
-                            List<Usuario> usuarios = JsonSerializer.Deserialize<List<Usuario>>(json);
-                            foreach (Usuario usuario in usuarios)
-                            {
-                                Console.WriteLine(usuario);
-                            }
-                        }
-                        catch (JsonException e)
-                        {
-                            Console.WriteLine("Aun no se ha creado ningún usuario");
-                        }
-                        break;
-                    default:
-                        Console.WriteLine("Opcion no válida");
-                        break;
-                }
-                
+            if (opcionSeleccionada == 0)
+            {
+                IniciarSesion(rutaUsuarios, out usuarioGuardado);
+            }
+            else if (opcionSeleccionada == 1)
+            {
+                Registrarse(rutaUsuarios);
             }
             return usuarioGuardado;
         }
-        public static void AbrirSobres()
+        public static void AbrirSobres(Usuario usuarioLogeado)
         {
             Console.Clear();
-            MenuSobres();
-            Console.Write("Selecciona un sobre: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            bool salir = false;
-            while(!salir)
+            string[] opcionesSobres = {
+                "Sobre de Fuego",
+                "Sobre de Agua",
+                "Sobre de Tierra",
+                "Sobre de Planta",
+                "Sobre Mixto",
+                "Atrás"
+            };
+            int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesSobres);
+            switch (opcion)
             {
-                switch (opcion)
-                {
-                    case 1:
-                        //SobreFuego();
-                        break;
-                    case 2:
-                        //SobreAgua();
-                        break;
-                    case 3:
-                        //SobreTierra();
-                        break;
-                    case 4:
-                        //SobrePlanta();
-                        break;
-                    case 5:
-                        //SobreMixto();
-                        break;
-                    case 6:
-                        salir = true;
-                        break;
-                }
+                case 0:
+                    SobreFuego.AbrirSobre(usuarioLogeado);
+                    break;
+                case 1:
+                    SobreAgua.AbrirSobre(usuarioLogeado);
+                    break;
+                case 2:
+                    SobreTierra.AbrirSobre(usuarioLogeado);
+                    break;
+                case 3:
+                    SobrePlanta.AbrirSobre(usuarioLogeado);
+                    break;
+                case 4:
+                    Sobre.AbrirSobre(usuarioLogeado);
+                    break;
+                case 5:
+                    break;
             }
         }
-
-        public static void MenuSobres()
-        {
-            Console.WriteLine("1. Sobre de Fuego");
-            Console.WriteLine("2. Sobre de Agua");
-            Console.WriteLine("3. Sobre de Tierra");
-            Console.WriteLine("4. Sobre de Planta");
-            Console.WriteLine("5. Sobre Mixto");
-            Console.WriteLine("6. Atrás");
-        }
-
-        public static void Pokedex()
+        public static void Pokedex(Usuario usuario)
         {
             Console.Clear();
-            MenuPokedex();
-            Console.Write("Introduce una opción: ") ;
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            bool salir = false;
-            while(!salir)
+            string[] opcionesPokedex = {
+                "Mis Pokémon",
+                "Todos",
+                "Pokémons bloqueados",
+                "Filtrar por tipo",
+                "Atrás"
+            };
+            int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesPokedex);
+            string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
+            switch (opcion)
             {
-                switch (opcion)
-                {
-                    case 1:
-                        // listado de tus pokemon
-                        break;
-                    case 2:
-                        Console.Clear();
-                        List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
-                        listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
-                        break;
-                    case 3:
-                        // listado solo de los pokemons bloqueados
-                        break;
-                    case 4:
-                        Console.Clear();
-                        MenuTipos();
-                        SwitchTipos();
-                        break;
-                    case 5:
-                        salir = true;
-                        break;
-                }
-            }  
-        }
-
-        public static void MenuPokedex()
-        {
-            Console.WriteLine("1. Mis Pokémon");
-            Console.WriteLine("2. Todos");
-            Console.WriteLine("3. Pokémons bloqueados");
-            Console.WriteLine("4. Filtrar por tipo");
-            Console.WriteLine("5. Atrás");
-
-        }
-
-        public static void MenuTipos()
-        {
-            Console.WriteLine("1. Filtrar por tipo fuego");
-            Console.WriteLine("2. Filtrar por tipo agua");
-            Console.WriteLine("3. Filtrar por tipo tierra");
-            Console.WriteLine("4. Filtrar por tipo planta");
-            Console.WriteLine("5. Atrás");
-        }
-
-        public static void SwitchTipos()
-        {
-            Console.Write("Introduce la opción: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            bool salir = false;
-            while (!salir) 
-            {
-                switch (opcion)
-                {
-                    case 1:
-                        // linq tipo fuego
-                        break;
-                    case 2:
-                        // linq tipo agua
-                        break;
-                    case 3:
-                        // linq tipo tierra
-                        break;
-                    case 4:
-                        // linq tipo planta
-                        break;
-                    case 5:
-                        salir = true;
-                        break;
-                }
+                case 0:
+                    Console.Clear();
+                    List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
+                    listaPokemonUsuario.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
+                    break;
+                case 1:
+                    Console.Clear();
+                    List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+                    listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(ConsolaInterfaz.WriteLineCentr);
+                    Console.ReadKey(true);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    Console.Clear();
+                    string[] opcionesTipos = {
+                        "Filtrar por tipo fuego",
+                        "Filtrar por tipo agua",
+                        "Filtrar por tipo tierra",
+                        "Filtrar por tipo planta",
+                        "Atrás"
+                    };
+                    int opcionTipo = ConsolaInterfaz.SeleccionarOpcion(opcionesTipos);
+                    SwitchTipos(opcionTipo);
+                    break;
+                case 4:
+                    break;
             }
         }
-
+        public static void SwitchTipos(int opcion)
+        {
+            bool salir = false;
+            while (!salir)
+            {
+                switch (opcion)
+                {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        salir = true;
+                        break;
+                }
+                break;
+            }
+        }
         public static void Ajustes()
         {
             Console.Clear();
-            MenuAjustes();
-            Console.Write("Introduce la opción: ");
-            int opcion = Convert.ToInt32(Console.ReadLine());
-            bool salir = false;
-            while (!salir)
+            string[] opcionesAjustes = {
+                "Reiniciar partida",
+                "Desbloquear todo",
+                "Atrás"
+            };
+            int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesAjustes);
+            switch (opcion)
             {
-                switch (opcion)
-                {
-                    case 1:
-                        // reiniciar partida
-                        break;
-                    case 2:
-                        // desbloquear todo
-                        break;
-                    case 3:
-                        salir = true;
-                        break;
-                }
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
             }
         }
-
-        public static void MenuAjustes()
-        {
-            Console.WriteLine("1. Reiniciar partida");
-            Console.WriteLine("2. Desbloquear todo");
-            Console.WriteLine("3. Atrás");
-        }
-
         public static void MenuOpciones(Usuario usuarioLogeado)
         {
+            string[] opcionesMenuPrincipal = {
+                "Abrir sobres",
+                "Album",
+                "Ajustes",
+                "Salir"
+            };
             bool salir = false;
             while (!salir)
             {
-                Console.WriteLine($"{usuarioLogeado.NombreUsuario},{usuarioLogeado.Contrasena}");
-                Console.Clear();
-                Console.WriteLine("1. Abrir sobres");
-                Console.WriteLine("2. Album");
-                Console.WriteLine("3. Ajustes");
-                Console.WriteLine("4. Salir");
-                Console.Write("Introduce una opción: ");
-                int opcion = Convert.ToInt32(Console.ReadLine());
-                switch (opcion)
+                int opcionSeleccionada = ConsolaInterfaz.SeleccionarOpcion(opcionesMenuPrincipal);
+                switch (opcionSeleccionada)
                 {
+                    case 0:
+                        AbrirSobres(usuarioLogeado);
+                        break;
                     case 1:
-                        AbrirSobres();
+                        Pokedex(usuarioLogeado);
                         break;
                     case 2:
-                        Pokedex();
+                        Ajustes();
                         break;
                     case 3:
-                        Ajustes ajustes = new Ajustes();
-                        ajustes.MostrarMenuAjustes();
-                        Console.CursorVisible = true;
-                        break;
-                    case 4:
-                        Console.WriteLine("Saliendo");
+                        ConsolaInterfaz.WriteLineCentr("Saliendo");
                         salir = true;
                         break;
-                    default:
-                        Console.WriteLine("Opción no válida");
-                        break;
+                }
+                if (!salir)
+                {
+                    Console.WriteLine("\nPresiona cualquier tecla para volver al menú...");
+                    Console.ReadKey(true);
                 }
             }
         }
-
         public static List<Pokemon> ListaPokemonCompleta(string fichero)
         {
             List<Pokemon> pokemons = new List<Pokemon>();
-
             foreach (string linea in File.ReadLines(fichero))
             {
                 string[] atributos = linea.Split(';');
-
-                int id = int.Parse(atributos[0]);
-                string nombre = atributos[1];
-                int vida = int.Parse(atributos[2]);
-                string tipo = atributos[3];
-
-
-                /*Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
-                pokemons.Add(objeto);*/
+                Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
+                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]),atributos[7]);
+                pokemons.Add(pokemon);
             }
             return pokemons;
         }
 
+        public static List<Pokemon> ListaPokemonUsuario(string rutaUsuario)
+        {
+            List<Pokemon> listaPokemonUsuario = new List<Pokemon>();
+            foreach (string linea in File.ReadLines(rutaUsuario))
+            {
+                string[] atributos = linea.Split(";");
+                Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
+                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]), atributos[7]);
+                listaPokemonUsuario.Add(pokemon);
+            }
+            return listaPokemonUsuario; 
+        }
         static void Main(string[] args)
         {
-
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+            ConsolaInterfaz.ColorLetras();
             string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
             if (!File.Exists("rutaUsuarios"))
             {

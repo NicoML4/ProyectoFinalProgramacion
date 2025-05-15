@@ -99,4 +99,19 @@ class Pokemon
     {
         asset = enlace;
     }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Pokemon pokemon &&
+               id == pokemon.id;
+    }
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(id);
+    }
+
+    public override string ToString()
+    {
+        return $"{id};{nombre};{vida};{tipo};{ataque1.GetNombre()};{ataque2.GetNombre()};{fechaObtencion};{asset}";
+    }
 }

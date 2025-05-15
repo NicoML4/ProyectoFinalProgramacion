@@ -1,0 +1,10 @@
+6;Charizard;118;agua;Gruñido;Placaje;15/05/2025 14:11:11;../../../assets/charizard.txt
+29;Nidoran(F);37;planta;Placaje;Impactrueno;15/05/2025 14:10:05;../../../assets/nidoran(f).txt
+41;Zubat;83;tierra;Burbuja;Gruñido;15/05/2025 14:10:05;../../../assets/zubat.txt
+57;Primeape;47;agua;Placaje;Burbuja;15/05/2025 14:11:11;../../../assets/primeape.txt
+91;Cloyster;98;fuego;Pistola Agua;Pistola Agua;15/05/2025 14:11:11;../../../assets/cloyster.txt
+124;Jynx;64;fuego;Arañazo;Ascuas;15/05/2025 14:10:05;../../../assets/jynx.txt
+128;Tauros;85;tierra;Impactrueno;Gruñido;15/05/2025 14:11:11;../../../assets/tauros.txt
+133;Eevee;60;planta;Placaje;Pistola Agua;15/05/2025 14:11:11;../../../assets/eevee.txt
+139;Omastar;108;tierra;Impactrueno;Ascuas;15/05/2025 14:10:05;../../../assets/omastar.txt
+148;Dragonair;84;planta;Placaje;Pistola Agua;15/05/2025 14:10:05;../../../assets/dragonair.txt
