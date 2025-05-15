@@ -30,7 +30,7 @@ namespace ProyectoFinalProgramacion
             reproductor.Detener();
         }
 
-        public void MostrarMenuAjustes()
+        /*public void MostrarMenuAjustes()
         {
             string[] opciones = {
             "Reproducir música",
@@ -81,37 +81,47 @@ namespace ProyectoFinalProgramacion
                         break;
                 }
             }
-        }
+        }*/
 
-        private void EjecutarOpcion(int opcion)
+        public void MostrarMenuAjustes()
         {
-            bool salir = true;
-            Console.Clear();
+            bool salir = false;
+
             while (!salir)
             {
+                Console.Clear();
+                Console.WriteLine("1. Reproducir Música");
+                Console.WriteLine("2. Detener Música");
+                Console.WriteLine("3. Reiniciar Partida");
+                Console.WriteLine("4. Desbloquear Todo");
+                Console.WriteLine("5. Salir del Menú de Opciones");
+                Console.Write("Introduce una opción: ");
+                int opcion;
+                opcion = Convert.ToInt32(Console.ReadLine());
+
                 switch (opcion)
-                {
-                    case 0:
-                        ReproducirMusica();
-                        break;
-                    case 1:
-                        DetenerMusica();
-                        break;
-                    case 2:
-                        ReiniciarPartida();
-                        break;
-                    case 3:
-                        DesbloquearTodo();
-                        break;
-                    case 4:
-                        salir = true;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida. Presiona cualquier tecla para continuar...");
-                        Console.ReadKey();
-                        salir = true;
-                        break;
-                }
+                    {
+                        case 1:
+                            ReproducirMusica();
+                            break;
+                        case 2:
+                            DetenerMusica();
+                            break;
+                        case 3:
+                            ReiniciarPartida();
+                            break;
+                        case 4:
+                            DesbloquearTodo();
+                            break;
+                        case 5:
+                            salir = true;
+                            break;
+                        default:
+                            Console.WriteLine("Opción no válida. Presiona cualquier tecla para continuar...");
+                            Console.ReadKey();
+                            break;
+                    }
+                
             }
         }
 
