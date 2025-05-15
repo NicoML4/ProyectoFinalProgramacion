@@ -5,7 +5,7 @@ namespace ProyectoFinalProgramacion
 {
     internal class Program
     {
-        const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion_SIN_ATAQUES.txt";
+        const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
         public static bool IniciarSesion(string rutaUsuarios, out Usuario usuarioGuardado)
         {
             string nombreUsuarioLogeado = "";
@@ -286,8 +286,11 @@ namespace ProyectoFinalProgramacion
                 string nombre = atributos[1];
                 int vida = int.Parse(atributos[2]);
                 string tipo = atributos[3];
-                /*Pokemon objeto = new Pokemon(id, nombre, vida, tipo);
-                pokemons.Add(objeto);*/
+                string ataque1 = atributos[4];
+                string ataque2 = atributos[5];
+                string asset = atributos[6];
+                Pokemon pokemon = new Pokemon(id, nombre, vida, tipo, ataque1, ataque2, asset);
+                pokemons.Add(pokemon);
             }
             return pokemons;
         }
