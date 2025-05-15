@@ -161,7 +161,7 @@ namespace ProyectoFinalProgramacion
                     break;
             }
         }
-        public static void Pokedex()
+        public static void Pokedex(Usuario usuario)
         {
             Console.Clear();
             string[] opcionesPokedex = {
@@ -172,9 +172,13 @@ namespace ProyectoFinalProgramacion
                 "Atrás"
             };
             int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesPokedex);
+            string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
             switch (opcion)
             {
                 case 0:
+                    Console.Clear();
+                    List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
+                    listaPokemonUsuario.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
                     break;
                 case 1:
                     Console.Clear();
@@ -259,7 +263,7 @@ namespace ProyectoFinalProgramacion
                         AbrirSobres(usuarioLogeado);
                         break;
                     case 1:
-                        Pokedex();
+                        Pokedex(usuarioLogeado);
                         break;
                     case 2:
                         Ajustes();
@@ -287,6 +291,19 @@ namespace ProyectoFinalProgramacion
                 pokemons.Add(pokemon);
             }
             return pokemons;
+        }
+
+        public static List<Pokemon> ListaPokemonUsuario(string rutaUsuario)
+        {
+            List<Pokemon> listaPokemonUsuario = new List<Pokemon>();
+            foreach (string linea in File.ReadLines(rutaUsuario))
+            {
+                string[] atributos = linea.Split(";");
+                Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
+                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]), atributos[7]);
+                listaPokemonUsuario.Add(pokemon);
+            }
+            return listaPokemonUsuario; 
         }
         static void Main(string[] args)
         {
