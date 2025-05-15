@@ -149,6 +149,7 @@ namespace ProyectoFinalProgramacion
                 case 2:
                     break;
                 case 3:
+                    SobrePlanta.AbrirSobre(usuarioLogeado);
                     break;
                 case 4:
                     Sobre.AbrirSobre(usuarioLogeado);

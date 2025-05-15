@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalProgramacion
 {
-    internal static class Sobre
+    internal class Sobre
     {
-        private static List<Pokemon> CargarTodosPokemons()
+        public static List<Pokemon> CargarTodosPokemons()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             string[] separacion;
@@ -20,7 +20,7 @@ namespace ProyectoFinalProgramacion
             }
             return pokemons;
         }
-        private static List<Pokemon> CargarPokemonsUsuario(string rutaUsuario)
+        public static List<Pokemon> CargarPokemonsUsuario(string rutaUsuario)
         {
             List<Pokemon> pokemonsUsuario = new List<Pokemon>();
             string[] separacion;
