@@ -1,1 +1,10 @@
-
+17;Pidgeotto;50;fuego;Gruñido;Placaje;15/05/2025 2:14:46;../../../assets/pidgeotto.txt
+52;Meowth;48;tierra;Placaje;Impactrueno;15/05/2025 2:14:02;../../../assets/meowth.txt
+65;Alakazam;119;fuego;Arañazo;Gruñido;15/05/2025 2:14:46;../../../assets/alakazam.txt
+79;Slowpoke;83;tierra;Arañazo;Impactrueno;15/05/2025 2:14:02;../../../assets/slowpoke.txt
+102;Exeggcute;101;fuego;Arañazo;Placaje;15/05/2025 2:14:46;../../../assets/exeggcute.txt
+108;Lickitung;73;planta;Arañazo;Ascuas;15/05/2025 2:14:02;../../../assets/lickitung.txt
+116;Horsea;78;agua;Ascuas;Arañazo;15/05/2025 2:14:02;../../../assets/horsea.txt
+130;Gyarados;89;agua;Arañazo;Ascuas;15/05/2025 2:14:46;../../../assets/gyarados.txt
+138;Omanyte;93;tierra;Látigo Cepa;Burbuja;15/05/2025 2:14:46;../../../assets/omanyte.txt
+150;Mewtwo;92;fuego;Impactrueno;Gruñido;15/05/2025 2:14:02;../../../assets/mewtwo.txt

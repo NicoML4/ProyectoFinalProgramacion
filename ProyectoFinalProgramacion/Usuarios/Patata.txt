@@ -1,0 +1,5 @@
+23;Ekans;83;planta;Placaje;Arañazo;15/05/2025 2:11:55;../../../assets/ekans.txt
+76;Golem;61;tierra;Arañazo;Ascuas;15/05/2025 2:11:55;../../../assets/golem.txt
+100;Voltorb;45;fuego;Impactrueno;Burbuja;15/05/2025 2:11:55;../../../assets/voltorb.txt
+104;Cubone;46;tierra;Placaje;Arañazo;15/05/2025 2:11:55;../../../assets/cubone.txt
+149;Dragonite;74;tierra;Pistola Agua;Burbuja;15/05/2025 2:11:55;../../../assets/dragonite.txt

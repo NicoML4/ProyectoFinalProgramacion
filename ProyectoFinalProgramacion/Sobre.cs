@@ -12,8 +12,6 @@ namespace ProyectoFinalProgramacion
         {
             List<Pokemon> pokemons = new List<Pokemon>();
             string[] separacion;
-           Console.WriteLine(Directory.GetCurrentDirectory());
-            Console.WriteLine("Hola");
             string [] pokemonsFicheroCompleto = File.ReadAllLines("../../../Ficheros/pokemon_primera_generacion(modificado).txt");
             foreach (string pokemon in pokemonsFicheroCompleto)
             { 
@@ -22,7 +20,7 @@ namespace ProyectoFinalProgramacion
             }
             return pokemons;
         }
-        private static List<Pokemon> CargarPokemonsUsuario(String rutaUsuario)
+        private static List<Pokemon> CargarPokemonsUsuario(string rutaUsuario)
         {
             List<Pokemon> pokemonsUsuario = new List<Pokemon>();
             string[] separacion;
