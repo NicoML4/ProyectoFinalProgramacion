@@ -173,20 +173,23 @@ namespace ProyectoFinalProgramacion
             };
             int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesPokedex);
             string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
+            List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+            List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
             switch (opcion)
             {
                 case 0:
                     Console.Clear();
-                    List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
                     listaPokemonUsuario.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
                     break;
                 case 1:
                     Console.Clear();
-                    List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
                     listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(ConsolaInterfaz.WriteLineCentr);
                     Console.ReadKey(true);
                     break;
                 case 2:
+                    Console.Clear();
+                    listaPokemons.Where(p => !listaPokemonUsuario.Any(u => u.GetId() == p.GetId()))
+                        .Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
                     break;
                 case 3:
                     Console.Clear();
@@ -198,26 +201,39 @@ namespace ProyectoFinalProgramacion
                         "Atrás"
                     };
                     int opcionTipo = ConsolaInterfaz.SeleccionarOpcion(opcionesTipos);
-                    SwitchTipos(opcionTipo);
+                    SwitchTipos(opcionTipo,rutaUsuario);
                     break;
                 case 4:
                     break;
             }
         }
-        public static void SwitchTipos(int opcion)
+        public static void SwitchTipos(int opcion, string rutaUsuario)
         {
+            List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
             bool salir = false;
             while (!salir)
             {
                 switch (opcion)
                 {
                     case 0:
+                        Console.Clear();
+                        listaPokemonUsuario.Where(p => p.GetTipo() == "fuego").Select(p => $"{p.GetId()} - {p.GetNombre()}")
+                            .ToList().ForEach(Console.WriteLine);
                         break;
                     case 1:
+                        Console.Clear();
+                        listaPokemonUsuario.Where(p => p.GetTipo() == "agua").Select(p => $"{p.GetId()} - {p.GetNombre()}")
+                            .ToList().ForEach(Console.WriteLine);
                         break;
                     case 2:
+                        Console.Clear();
+                        listaPokemonUsuario.Where(p => p.GetTipo() == "tierra").Select(p => $"{p.GetId()} - {p.GetNombre()}")
+                            .ToList().ForEach(Console.WriteLine);
                         break;
                     case 3:
+                        Console.Clear();
+                        listaPokemonUsuario.Where(p => p.GetTipo() == "planta").Select(p => $"{p.GetId()} - {p.GetNombre()}")
+                            .ToList().ForEach(Console.WriteLine);
                         break;
                     case 4:
                         salir = true;
@@ -287,7 +303,7 @@ namespace ProyectoFinalProgramacion
             {
                 string[] atributos = linea.Split(';');
                 Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
-                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]),atributos[7]);
+                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]), atributos[6]);
                 pokemons.Add(pokemon);
             }
             return pokemons;
