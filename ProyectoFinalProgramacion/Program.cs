@@ -267,6 +267,7 @@ namespace ProyectoFinalProgramacion
             string[] opcionesMenuPrincipal = {
                 "Abrir sobres",
                 "Album",
+                "Combatir",
                 "Ajustes",
                 "Salir"
             };
@@ -283,9 +284,12 @@ namespace ProyectoFinalProgramacion
                         Pokedex(usuarioLogeado);
                         break;
                     case 2:
-                        Ajustes();
+                        Combate.Inicializar(usuarioLogeado);
                         break;
                     case 3:
+                        Ajustes();
+                        break;
+                    case 4:
                         ConsolaInterfaz.WriteLineCentr("Saliendo");
                         salir = true;
                         break;
