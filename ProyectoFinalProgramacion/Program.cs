@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Globalization;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace ProyectoFinalProgramacion
@@ -303,7 +304,7 @@ namespace ProyectoFinalProgramacion
             {
                 string[] atributos = linea.Split(';');
                 Pokemon pokemon = new Pokemon(Convert.ToInt32(atributos[0]), atributos[1], Convert.ToInt32(atributos[2]),
-                    atributos[3], atributos[4], atributos[5], DateTime.Parse(atributos[6]), atributos[6]);
+                    atributos[3], atributos[4], atributos[5],null, atributos[7]);
                 pokemons.Add(pokemon);
             }
             return pokemons;
@@ -327,9 +328,13 @@ namespace ProyectoFinalProgramacion
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ConsolaInterfaz.ColorLetras();
             string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
-            if (!File.Exists("rutaUsuarios"))
+            if (!File.Exists(rutaUsuarios))
             {
-                File.WriteAllText("rutaUsuarios", "");
+                File.WriteAllText(rutaUsuarios, "");
+            }
+            else 
+            {
+                Console.WriteLine("Esto existe");
             }
             Usuario usuarioLogeado = Login(rutaUsuarios);
             MenuOpciones(usuarioLogeado);

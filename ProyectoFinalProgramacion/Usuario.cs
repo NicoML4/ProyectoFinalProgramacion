@@ -8,8 +8,8 @@ namespace ProyectoFinalProgramacion
 {
     internal class Usuario
     {
-        string nombreUsuario;
-        string contrasena;
+        private string nombreUsuario;
+        private string contrasena;
 
         public Usuario(string nombreUsuario, string contrasena)
         { 
