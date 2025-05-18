@@ -266,7 +266,7 @@ namespace ProyectoFinalProgramacion
                 eleccion = 0;
                 while (eleccion == 0)
                 {
-                    Console.WriteLine($"Que quieres hacer {usuario.NombreUsuario}?\n");
+                    Console.WriteLine($"¿Que quieres hacer {usuario.NombreUsuario}?\n");
                     Console.WriteLine($"1 - Atacar");
                     Console.WriteLine($"2 - Cambiar de pokemon\n");
                     try
