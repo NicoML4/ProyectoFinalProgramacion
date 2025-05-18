@@ -7,7 +7,7 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
         const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
-        public static bool IniciarSesion(string rutaUsuarios, out Usuario usuarioGuardado)
+        public static Usuario IniciarSesion(string rutaUsuarios, out Usuario usuarioGuardado)
         {
             string nombreUsuarioLogeado = "";
             string contrasenaUsuarioLogeado = "";
@@ -38,26 +38,27 @@ namespace ProyectoFinalProgramacion
                 List<Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
                 if (usuariosGuardados.Contains(usuarioGuardado))
                 {
-                    ConsolaInterfaz.WriteLineCentr($"Bienvenido {usuarioGuardado.NombreUsuario}!");
                     aceptado = true;
                 }
                 else
                 {
                     ConsolaInterfaz.WriteLineCentr("El usuario o contraseña que estás introduciendo es incorrecto");
+                    Console.ReadKey(true);
                 }
             }
             catch (JsonException e)
             {
                 ConsolaInterfaz.WriteLineCentr("Aun no se ha creado ningún usuario");
             }
-            return aceptado;
+            return aceptado ? usuarioGuardado : null;
         }
-        public static void Registrarse(string rutaUsuarios)
+        public static Usuario Registrarse(string rutaUsuarios)
         {
             string nombreUsuarioRegistro = "";
             string contrasenaRegistro = "";
             string contrasenaRegistroRepetida = "";
             List<Usuario> usuariosRegistrados;
+            bool aceptado = false;
             string json = File.ReadAllText(rutaUsuarios);
             try
             {
@@ -99,6 +100,7 @@ namespace ProyectoFinalProgramacion
             if (usuariosRegistrados.Exists(u => u.NombreUsuario == usuarioCreado.NombreUsuario))
             {
                 ConsolaInterfaz.WriteLineCentr("Ya hay un usuario con ese nombre");
+                Console.ReadKey(true);
             }
             else
             {
@@ -109,7 +111,11 @@ namespace ProyectoFinalProgramacion
                 File.WriteAllText(rutaUsuarios, datosSerializados);
                 StreamWriter creacionFichero = new StreamWriter($"../../../Usuarios/{usuarioCreado.NombreUsuario}.txt");
                 creacionFichero.Close();
+                aceptado = true;
+                Console.ReadKey(true);
             }
+            return aceptado ? usuarioCreado : null; 
+            
         }
         public static Usuario Login(string rutaUsuarios)
         {
@@ -117,16 +123,21 @@ namespace ProyectoFinalProgramacion
                 "Iniciar Sesión",
                 "Registrarse"
             };
-            int opcionSeleccionada = ConsolaInterfaz.SeleccionarOpcion(opcionesLogin);
+            
             Usuario usuarioGuardado = null;
-            if (opcionSeleccionada == 0)
-            {
-                IniciarSesion(rutaUsuarios, out usuarioGuardado);
+            while (usuarioGuardado == null)
+            { 
+                int opcionSeleccionada = ConsolaInterfaz.SeleccionarOpcion(opcionesLogin);
+                if (opcionSeleccionada == 0)
+                {
+                    usuarioGuardado = IniciarSesion(rutaUsuarios, out usuarioGuardado);
+                }
+                else if (opcionSeleccionada == 1)
+                {
+                    usuarioGuardado = Registrarse(rutaUsuarios);
+                }
             }
-            else if (opcionSeleccionada == 1)
-            {
-                Registrarse(rutaUsuarios);
-            }
+            
             return usuarioGuardado;
         }
         public static void AbrirSobres(Usuario usuarioLogeado)

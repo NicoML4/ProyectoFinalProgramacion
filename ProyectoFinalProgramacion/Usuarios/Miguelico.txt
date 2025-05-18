@@ -10,9 +10,13 @@
 16;Pidgey;110;fuego;Pistola Agua;Burbuja;15/05/2025 3:31:33;../../../assets/pidgey.txt
 17;Pidgeotto;50;fuego;Gruñido;Placaje;15/05/2025 2:14:46;../../../assets/pidgeotto.txt
 23;Ekans;83;planta;Placaje;Arañazo;15/05/2025 3:24:58;../../../assets/ekans.txt
+24;Arbok;68;fuego;Ascuas;Arañazo;18/05/2025 2:04:47;../../../assets/arbok.txt
 27;Sandshrew;102;tierra;Ascuas;Impactrueno;15/05/2025 3:31:41;../../../assets/sandshrew.txt
+28;Sandslash;79;tierra;Ascuas;Látigo Cepa;18/05/2025 2:16:15;../../../assets/sandslash.txt
 33;Nidorino;104;agua;Placaje;Arañazo;15/05/2025 3:31:35;../../../assets/nidorino.txt
 35;Clefairy;76;planta;Ascuas;Ascuas;15/05/2025 3:23:57;../../../assets/clefairy.txt
+42;Golbat;81;tierra;Arañazo;Gruñido;18/05/2025 2:16:07;../../../assets/golbat.txt
+43;Oddish;90;fuego;Impactrueno;Ascuas;18/05/2025 2:04:47;../../../assets/oddish.txt
 44;Gloom;66;tierra;Arañazo;Pistola Agua;15/05/2025 13:47:27;../../../assets/gloom.txt
 45;Vileplume;85;planta;Impactrueno;Placaje;15/05/2025 3:23:57;../../../assets/vileplume.txt
 50;Diglett;37;fuego;Pistola Agua;Burbuja;16/05/2025 17:47:43;../../../assets/diglett.txt
@@ -21,30 +25,48 @@
 57;Primeape;47;agua;Placaje;Burbuja;15/05/2025 3:31:35;../../../assets/primeape.txt
 58;Growlithe;110;planta;Burbuja;Gruñido;15/05/2025 3:23:47;../../../assets/growlithe.txt
 65;Alakazam;119;fuego;Arañazo;Gruñido;15/05/2025 2:14:46;../../../assets/alakazam.txt
+66;Machop;51;tierra;Placaje;Placaje;18/05/2025 2:16:07;../../../assets/machop.txt
+70;Weepinbell;72;fuego;Arañazo;Pistola Agua;18/05/2025 2:16:09;../../../assets/weepinbell.txt
 72;Tentacool;89;agua;Burbuja;Ascuas;15/05/2025 13:48:24;../../../assets/tentacool.txt
 75;Graveler;60;tierra;Pistola Agua;Placaje;15/05/2025 3:31:41;../../../assets/graveler.txt
 78;Rapidash;50;planta;Arañazo;Impactrueno;15/05/2025 13:47:27;../../../assets/rapidash.txt
 79;Slowpoke;83;tierra;Arañazo;Impactrueno;15/05/2025 2:14:02;../../../assets/slowpoke.txt
+80;Slowbro;62;tierra;Gruñido;Arañazo;18/05/2025 2:16:07;../../../assets/slowbro.txt
+81;Magnemite;107;fuego;Arañazo;Arañazo;18/05/2025 2:16:10;../../../assets/magnemite.txt
 83;Farfetch’d;44;tierra;Ascuas;Gruñido;15/05/2025 3:31:38;../../../assets/farfetch’d.txt
+86;Seel;74;planta;Burbuja;Placaje;18/05/2025 2:16:22;../../../assets/seel.txt
 88;Grimer;75;agua;Ascuas;Arañazo;15/05/2025 13:47:27;../../../assets/grimer.txt
+89;Muk;76;fuego;Burbuja;Impactrueno;18/05/2025 2:16:11;../../../assets/muk.txt
 90;Shellder;84;planta;Impactrueno;Gruñido;15/05/2025 3:23:47;../../../assets/shellder.txt
+91;Cloyster;98;fuego;Pistola Agua;Pistola Agua;18/05/2025 2:03:54;../../../assets/cloyster.txt
+94;Gengar;37;fuego;Ascuas;Arañazo;18/05/2025 2:16:11;../../../assets/gengar.txt
 96;Drowzee;94;fuego;Pistola Agua;Placaje;15/05/2025 3:31:33;../../../assets/drowzee.txt
+97;Hypno;110;fuego;Gruñido;Ascuas;18/05/2025 2:16:10;../../../assets/hypno.txt
+100;Voltorb;45;fuego;Impactrueno;Burbuja;18/05/2025 2:16:10;../../../assets/voltorb.txt
 101;Electrode;70;fuego;Placaje;Látigo Cepa;16/05/2025 17:47:43;../../../assets/electrode.txt
 102;Exeggcute;101;fuego;Arañazo;Placaje;15/05/2025 2:14:46;../../../assets/exeggcute.txt
+107;Hitmonchan;54;fuego;Látigo Cepa;Placaje;18/05/2025 2:04:47;../../../assets/hitmonchan.txt
 108;Lickitung;73;planta;Arañazo;Ascuas;15/05/2025 2:14:02;../../../assets/lickitung.txt
+109;Koffing;82;agua;Látigo Cepa;Arañazo;18/05/2025 2:16:07;../../../assets/koffing.txt
 111;Rhyhorn;111;tierra;Placaje;Placaje;15/05/2025 3:31:38;../../../assets/rhyhorn.txt
 116;Horsea;78;agua;Ascuas;Arañazo;15/05/2025 2:14:02;../../../assets/horsea.txt
 120;Staryu;67;tierra;Pistola Agua;Placaje;15/05/2025 3:31:38;../../../assets/staryu.txt
 121;Starmie;59;planta;Placaje;Burbuja;15/05/2025 3:23:47;../../../assets/starmie.txt
+124;Jynx;64;fuego;Arañazo;Ascuas;18/05/2025 2:03:54;../../../assets/jynx.txt
 127;Pinsir;102;planta;Látigo Cepa;Placaje;15/05/2025 3:23:57;../../../assets/pinsir.txt
 128;Tauros;85;tierra;Impactrueno;Gruñido;15/05/2025 13:47:27;../../../assets/tauros.txt
 130;Gyarados;89;agua;Arañazo;Ascuas;15/05/2025 2:14:46;../../../assets/gyarados.txt
+132;Ditto;43;tierra;Burbuja;Burbuja;18/05/2025 2:16:22;../../../assets/ditto.txt
 134;Vaporeon;53;tierra;Arañazo;Gruñido;15/05/2025 13:47:27;../../../assets/vaporeon.txt
 135;Jolteon;80;planta;Ascuas;Placaje;15/05/2025 3:23:57;../../../assets/jolteon.txt
+136;Flareon;120;agua;Burbuja;Impactrueno;18/05/2025 2:16:22;../../../assets/flareon.txt
 137;Porygon;39;fuego;Pistola Agua;Placaje;16/05/2025 17:47:43;../../../assets/porygon.txt
 138;Omanyte;93;tierra;Látigo Cepa;Burbuja;15/05/2025 2:14:46;../../../assets/omanyte.txt
 139;Omastar;108;tierra;Impactrueno;Ascuas;15/05/2025 3:31:41;../../../assets/omastar.txt
+140;Kabuto;112;fuego;Placaje;Gruñido;18/05/2025 2:16:10;../../../assets/kabuto.txt
 143;Snorlax;55;fuego;Burbuja;Burbuja;16/05/2025 17:47:43;../../../assets/snorlax.txt
+144;Articuno;103;tierra;Impactrueno;Arañazo;18/05/2025 2:16:07;../../../assets/articuno.txt
 146;Moltres;51;fuego;Gruñido;Impactrueno;15/05/2025 3:31:33;../../../assets/moltres.txt
 147;Dratini;51;fuego;Placaje;Impactrueno;15/05/2025 13:48:24;../../../assets/dratini.txt
 150;Mewtwo;92;fuego;Impactrueno;Gruñido;15/05/2025 2:14:02;../../../assets/mewtwo.txt
+151;Mew;99;fuego;Látigo Cepa;Ascuas;18/05/2025 2:16:11;../../../assets/mew.txt
