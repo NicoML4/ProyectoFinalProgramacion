@@ -41,31 +41,38 @@ namespace ProyectoFinalProgramacion
                     Console.WriteLine($"{pokemon.GetId()} - {pokemon.GetNombre()}");
                 }
                 Console.WriteLine($"Elige tu {contador + 1}º pokemon");
-                eleccion = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-                if (pokemonsUsuario.Exists(p => p.GetId() == eleccion))
+                try
                 {
-                    pokemonEncontrado = pokemonsUsuario.Find(p => p.GetId() == eleccion);
-                    baraja[contador] = pokemonEncontrado;
-                    pokemonsUsuario.Remove(pokemonEncontrado);
-                    contador++;
-                }
-                else 
-                {
-                    Console.WriteLine("Opción no valida");
-                }
-                for (int i = 0; i < baraja.Length; i++)
-                {
-                    if (baraja[i] != null)
+                    eleccion = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    if (pokemonsUsuario.Exists(p => p.GetId() == eleccion))
                     {
-                        Console.Write($"[{baraja[i].GetNombre()}]");
+                        pokemonEncontrado = pokemonsUsuario.Find(p => p.GetId() == eleccion);
+                        baraja[contador] = pokemonEncontrado;
+                        pokemonsUsuario.Remove(pokemonEncontrado);
+                        contador++;
                     }
-                    else 
+                    else
                     {
-                        Console.Write("[]");
+                        Console.WriteLine("Opción no valida");
                     }
+                    for (int i = 0; i < baraja.Length; i++)
+                    {
+                        if (baraja[i] != null)
+                        {
+                            Console.Write($"[{baraja[i].GetNombre()}]");
+                        }
+                        else
+                        {
+                            Console.Write("[]");
+                        }
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+                catch (Exception e)
+                {
+                    Console.WriteLine("Has escrito algo que no es un número");
+                }
             }
             return baraja;
         }
@@ -172,7 +179,7 @@ namespace ProyectoFinalProgramacion
                 {
                     if (baraja[i].GetVida() != 0)
                     {
-                        Console.Write($"[{i+1}-{baraja[i].GetNombre()}-{baraja[i].GetVida()}]");
+                        Console.Write($"[{i+1}-{baraja[i].GetNombre()}-Vida:{baraja[i].GetVida()}]");
                     }
                     else 
                     {
@@ -180,13 +187,13 @@ namespace ProyectoFinalProgramacion
                     }
                 }
                 Console.WriteLine();
-                Console.Write("Elige un pokemon que no este debilitado (numero): ");
+                Console.Write("Elige un pokemon que no este debilitado (primer numero): ");
                 try
                 { 
                     eleccion = Convert.ToInt32(Console.ReadLine());
                     if (baraja[eleccion - 1].GetVida() != 0)
                     {
-                        Console.WriteLine($"Adelante {baraja[eleccion - 1].GetNombre}!");
+                        Console.WriteLine($"Adelante {baraja[eleccion - 1].GetNombre()}!");
                         pokemonElegido = baraja[eleccion - 1];
                     }
                     else
@@ -197,12 +204,13 @@ namespace ProyectoFinalProgramacion
                 }
                 catch (Exception e)
                 {
+                    Console.Clear();
                     Console.WriteLine("Has escrito algo no válido");
                 }
             }
             return pokemonElegido;
         }
-        private static Ataque ataqueUsuario(Pokemon pokemonActualUsuario)
+        private static Ataque AtaqueUsuario(Pokemon pokemonActualUsuario)
         {
             int eleccion = 0;
             Ataque ataque = null;
@@ -217,11 +225,11 @@ namespace ProyectoFinalProgramacion
                     switch (eleccion)
                     {
                         case 1:
-                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque1().GetNombreAtaque()}");
+                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque1().GetNombreAtaque()}!");
                             ataque = pokemonActualUsuario.GetAtaque1();
                             break;
                         case 2:
-                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque2().GetNombreAtaque()}");
+                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque2().GetNombreAtaque()}!");
                             ataque = pokemonActualUsuario.GetAtaque2();
                             break;
                         default:
@@ -233,7 +241,7 @@ namespace ProyectoFinalProgramacion
                 catch (Exception e)
                 {
                     Console.Clear();
-                    Console.WriteLine("Introduce 1 o 2 para elegir el ataque que quieras");
+                    Console.WriteLine("Introduce 1 o 2 para elegir la opción que quieras hacer");
                     eleccion = 0;
                 }
             }
@@ -258,7 +266,7 @@ namespace ProyectoFinalProgramacion
                 eleccion = 0;
                 while (eleccion == 0)
                 {
-                    Console.WriteLine($"Que quieres hacer {usuario.NombreUsuario}\n");
+                    Console.WriteLine($"Que quieres hacer {usuario.NombreUsuario}?\n");
                     Console.WriteLine($"1 - Atacar");
                     Console.WriteLine($"2 - Cambiar de pokemon\n");
                     try
@@ -267,12 +275,15 @@ namespace ProyectoFinalProgramacion
                         switch (eleccion)
                         {
                             case 1:
-                                ataqueUsuario(pokemonActualUsuario);
+                                Console.Clear();
+                                AtaqueUsuario(pokemonActualUsuario);
                                 break;
                             case 2:
+                                Console.Clear();
                                 pokemonActualUsuario = PokemonsVivos(baraja);
                                 break;
                             default:
+                                Console.Clear();
                                 Console.WriteLine("Opción no valida");
                                 eleccion = 0;
                                 break;

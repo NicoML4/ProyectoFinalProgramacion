@@ -95,9 +95,18 @@ class Pokemon
     {
         this.ataque2 = new Ataque(ataque2);
     }
-    public void setAssset(string enlace)
+    public void SetAssset(string asset)
     {
-        asset = enlace;
+        this.asset = asset;
+    }
+
+    public void RecibirDano(int dano)
+    {
+        vida -= dano;
+        if (vida < 0)
+        { 
+            vida = 0;
+        }
     }
 
     public override bool Equals(object? obj)
@@ -112,6 +121,6 @@ class Pokemon
 
     public override string ToString()
     {
-        return $"{id};{nombre};{vida};{tipo};{ataque1.GetNombre()};{ataque2.GetNombre()};{fechaObtencion};{asset}";
+        return $"{id};{nombre};{vida};{tipo};{ataque1.GetNombreAtaque()};{ataque2.GetNombreAtaque()};{fechaObtencion};{asset}";
     }
 }
