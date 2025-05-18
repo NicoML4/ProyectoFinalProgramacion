@@ -29,11 +29,11 @@ namespace ProyectoFinalProgramacion
             return damage;
         }
 
-        public void SetNombre(string nombre)
+        public void SetNombreAtaque(string nombre)
         { 
             this.nombre = nombre;
         }
-        public string GetNombre()
+        public string GetNombreAtaque()
         {
             return nombre;
         }

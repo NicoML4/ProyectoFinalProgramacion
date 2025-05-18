@@ -202,18 +202,90 @@ namespace ProyectoFinalProgramacion
             }
             return pokemonElegido;
         }
+        private static Ataque ataqueUsuario(Pokemon pokemonActualUsuario)
+        {
+            int eleccion = 0;
+            Ataque ataque = null;
+            while (eleccion == 0)
+            {
+                Console.WriteLine($"Que ataque quieres que haga {pokemonActualUsuario.GetNombre()}\n");
+                Console.WriteLine($"1 - {pokemonActualUsuario.GetAtaque1().GetNombreAtaque()}");
+                Console.WriteLine($"2 - {pokemonActualUsuario.GetAtaque2().GetNombreAtaque()}\n");
+                try
+                {
+                    eleccion = Convert.ToInt32(Console.ReadLine());
+                    switch (eleccion)
+                    {
+                        case 1:
+                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque1().GetNombreAtaque()}");
+                            ataque = pokemonActualUsuario.GetAtaque1();
+                            break;
+                        case 2:
+                            Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque2().GetNombreAtaque()}");
+                            ataque = pokemonActualUsuario.GetAtaque2();
+                            break;
+                        default:
+                            Console.WriteLine("Opción no valida");
+                            eleccion = 0;
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Introduce 1 o 2 para elegir el ataque que quieras");
+                    eleccion = 0;
+                }
+            }
+            return ataque;
+        }
         private static void Jugar(Usuario usuario, Usuario enemigo, Pokemon[] baraja, Pokemon[] barajaEnemiga)
         {
-            Pokemon pokemonActualUsuario = null;
-            Pokemon pokemonActualEnemigo;
+            Pokemon pokemonActualUsuario = baraja[0];
+            Pokemon pokemonActualEnemigo = barajaEnemiga[0];
             Console.Clear();
+            Console.WriteLine($"{usuario.NombreUsuario} saca a {pokemonActualUsuario.GetNombre()}\n");
+            Console.WriteLine($"{enemigo.NombreUsuario} saca a {pokemonActualEnemigo.GetNombre()}\n");
             Console.WriteLine("¡Que empiece el combate!");
+            int eleccion = 0;
             while (RecorrerBaraja(baraja) && RecorrerBaraja(barajaEnemiga))
             {
                 if (pokemonActualUsuario == null)
                 {
                     pokemonActualUsuario = PokemonsVivos(baraja);
                 }
+
+                eleccion = 0;
+                while (eleccion == 0)
+                {
+                    Console.WriteLine($"Que quieres hacer {usuario.NombreUsuario}\n");
+                    Console.WriteLine($"1 - Atacar");
+                    Console.WriteLine($"2 - Cambiar de pokemon\n");
+                    try
+                    {
+                        eleccion = Convert.ToInt32(Console.ReadLine());
+                        switch (eleccion)
+                        {
+                            case 1:
+                                ataqueUsuario(pokemonActualUsuario);
+                                break;
+                            case 2:
+                                pokemonActualUsuario = PokemonsVivos(baraja);
+                                break;
+                            default:
+                                Console.WriteLine("Opción no valida");
+                                eleccion = 0;
+                                break;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Introduce 1 o 2 para elegir el ataque que quieras");
+                        eleccion = 0;
+                    }
+                }
+
             }
             
         }
