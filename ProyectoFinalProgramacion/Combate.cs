@@ -95,10 +95,11 @@ namespace ProyectoFinalProgramacion
                 Console.Write($"[{baraja[i].GetNombre()}]");
             }
                 Console.WriteLine();
+            Console.ReadKey(true);
             return baraja;
         }
 
-        public static List<Usuario> Combatientes(Usuario usuario)
+        private static List<Usuario> Combatientes(Usuario usuario)
         { 
             string json = File.ReadAllText("../../../Usuarios/UsuariosRegistrados.json");
             List<Usuario> usuariosGuardados = JsonSerializer.Deserialize<List<Usuario>>(json);
@@ -113,7 +114,7 @@ namespace ProyectoFinalProgramacion
             }
             return combatientesDisponibles;   
         }
-        public static Usuario elegirCombatiente(List<Usuario> combatientesDisponibles)
+        private static Usuario elegirCombatiente(List<Usuario> combatientesDisponibles)
         {
             int eleccion = 0;
             while (eleccion == 0)
@@ -149,6 +150,73 @@ namespace ProyectoFinalProgramacion
             }
             return null;
         }
+        private static bool RecorrerBaraja(Pokemon[] baraja)
+        {
+            int contador = 0;
+            foreach (Pokemon pokemon in baraja)
+            {
+                if (pokemon.GetVida() == 0)
+                { 
+                    contador++;
+                }
+            }
+            return contador == 6? false:true;
+        }
+        private static Pokemon PokemonsVivos(Pokemon[] baraja)
+        {
+            Pokemon pokemonElegido = null;
+            int eleccion=0;
+            while (pokemonElegido == null)
+            { 
+                for(int i = 0; i < baraja.Length; i++)
+                {
+                    if (baraja[i].GetVida() != 0)
+                    {
+                        Console.Write($"[{i+1}-{baraja[i].GetNombre()}-{baraja[i].GetVida()}]");
+                    }
+                    else 
+                    {
+                        Console.Write($"[{i+1}-{baraja[i].GetNombre()}-Debilitado]");
+                    }
+                }
+                Console.WriteLine();
+                Console.Write("Elige un pokemon que no este debilitado (numero): ");
+                try
+                { 
+                    eleccion = Convert.ToInt32(Console.ReadLine());
+                    if (baraja[eleccion - 1].GetVida() != 0)
+                    {
+                        Console.WriteLine($"Adelante {baraja[eleccion - 1].GetNombre}!");
+                        pokemonElegido = baraja[eleccion - 1];
+                    }
+                    else
+                    {
+                        Console.WriteLine("Este pokemon está debilitado");
+                        Console.ReadKey(true);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Has escrito algo no válido");
+                }
+            }
+            return pokemonElegido;
+        }
+        private static void Jugar(Usuario usuario, Usuario enemigo, Pokemon[] baraja, Pokemon[] barajaEnemiga)
+        {
+            Pokemon pokemonActualUsuario = null;
+            Pokemon pokemonActualEnemigo;
+            Console.Clear();
+            Console.WriteLine("¡Que empiece el combate!");
+            while (RecorrerBaraja(baraja) && RecorrerBaraja(barajaEnemiga))
+            {
+                if (pokemonActualUsuario == null)
+                {
+                    pokemonActualUsuario = PokemonsVivos(baraja);
+                }
+            }
+            
+        }
         public static void Inicializar(Usuario usuario)
         {
             if (CantidadMinimaPokemons(usuario))
@@ -159,6 +227,7 @@ namespace ProyectoFinalProgramacion
 
                 Usuario enemigo = elegirCombatiente(Combatientes(usuario));
                 Pokemon[] barajaEnemiga = ElegirPokemonEnemigo(CargarPokemonsUsuario("../../../Usuarios/" + enemigo.NombreUsuario + ".txt"));
+                Jugar(usuario,enemigo,baraja,barajaEnemiga);
             }
             else 
             {
