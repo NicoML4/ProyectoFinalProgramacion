@@ -7,8 +7,9 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
         const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
-        public static Usuario IniciarSesion(string rutaUsuarios, out Usuario usuarioGuardado)
+        public static Usuario IniciarSesion(string rutaUsuarios)
         {
+            Usuario usuarioGuardado;
             string nombreUsuarioLogeado = "";
             string contrasenaUsuarioLogeado = "";
             string json = File.ReadAllText(rutaUsuarios);
@@ -130,7 +131,7 @@ namespace ProyectoFinalProgramacion
                 int opcionSeleccionada = ConsolaInterfaz.SeleccionarOpcion(opcionesLogin);
                 if (opcionSeleccionada == 0)
                 {
-                    usuarioGuardado = IniciarSesion(rutaUsuarios, out usuarioGuardado);
+                    usuarioGuardado = IniciarSesion(rutaUsuarios);
                 }
                 else if (opcionSeleccionada == 1)
                 {
