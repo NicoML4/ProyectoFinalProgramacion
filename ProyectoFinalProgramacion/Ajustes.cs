@@ -9,6 +9,7 @@ namespace ProyectoFinalProgramacion
     internal class Ajustes
     {
         public ReproductorMusica reproductor;
+        
 
         public Ajustes(ReproductorMusica reproductor)
         {
@@ -29,62 +30,9 @@ namespace ProyectoFinalProgramacion
         {
             reproductor.Detener();
         }
-
-        /*public void MostrarMenuAjustes()
-        {
-            string[] opciones = {
-            "Reproducir música",
-            "Detener música",
-            "Reiniciar partida",
-            "Desbloquear todos los Pokémon",
-            "Volver al menú principal"
-        };
-
-            int opcionSeleccionada = 0;
-            bool continuar = true;
-
-            Console.CursorVisible = false;
-
-            while (continuar)
-            {
-                Console.Clear();
-                Console.WriteLine("=== AJUSTES ===");
-                for (int i = 0; i < opciones.Length; i++)
-                {
-                    if (i == opcionSeleccionada)
-                    {
-                        Console.BackgroundColor = ConsoleColor.DarkGray;
-                        Console.ForegroundColor = ConsoleColor.Black;
-                    }
-
-                    Console.WriteLine($"{(i + 1)}. {opciones[i]}");
-
-                    Console.ResetColor();
-                }
-
-                ConsoleKeyInfo tecla = Console.ReadKey(true);
-
-                switch (tecla.Key)
-                {
-                    case ConsoleKey.UpArrow:
-                        opcionSeleccionada = (opcionSeleccionada - 1 + opciones.Length) % opciones.Length;
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                        opcionSeleccionada = (opcionSeleccionada + 1) % opciones.Length;
-                        break;
-
-                    case ConsoleKey.Enter:
-                        EjecutarOpcion(opcionSeleccionada);
-                        if (opcionSeleccionada == 4) 
-                            continuar = false;
-                        break;
-                }
-            }
-        }*/
-
         public void MostrarMenuAjustes()
         {
+            Ajustes Ajustes = new Ajustes();
             bool salir = false;
 
             while (!salir)
