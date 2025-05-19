@@ -321,6 +321,145 @@ namespace ProyectoFinalProgramacion
                 Console.WriteLine("No puedes combatir hasta que no tengas al menos 6 pokemons");
             }
         }
-        
+
+        private static int Calcular(Ataque ataque, Pokemon pokemonActualEnemigo)
+        {
+            int danyo = 0;
+            string tipo = "";
+            switch (ataque.GetNombreAtaque())
+            {
+                case "Ascuas":
+                    danyo = 30;
+                    tipo = "Fuego";
+                    break;
+
+                case "Pistola Agua":
+                    danyo = 50;
+                    tipo = "Agua";
+                    break;
+
+                case "Gruñido":
+                    danyo = 10;
+                    tipo = "Tierra";
+                    break;
+
+                case "Impactrueno":
+                    danyo = 60;
+                    tipo = "Tierra";
+                    break;
+
+                case "Látigo":
+                    danyo = 30;
+                    tipo = "Planta";
+                    break;
+
+                case "Arañazo":
+                    danyo = 20;
+                    tipo = "Fuego";
+                    break;
+
+                case "Placaje":
+                    danyo = 15;
+                    tipo = "Planta";
+                    break;
+
+                case "Burbuja":
+                    danyo = 30;
+                    tipo = "Agua";
+                    break;
+            }
+            return Porcentaje(danyo, tipo, pokemonActualEnemigo);
+        }
+
+        private static int Porcentaje(int danyo, string tipo, Pokemon pokemonActualEnemigo)
+        {
+            switch (pokemonActualEnemigo.GetTipo())
+            {
+                case "Fuego":
+                    switch (tipo)
+                    {
+                        case "Fuego":
+                            danyo = danyo;
+                            break;
+
+                        case "Agua":
+                            danyo = (int)(danyo * 1.5);
+                            break;
+
+                        case "Planta":
+                            danyo = (int)(danyo * 0.5);
+                            break;
+
+                        case "Tierra":
+                            danyo = danyo;
+                            break;
+                    }
+                    break;
+
+                case "Agua":
+                    switch (tipo)
+                    {
+                        case "Fuego":
+                            danyo = (int)(danyo * 0.5);
+                            break;
+
+                        case "Agua":
+                            danyo = danyo;
+                            break;
+
+                        case "Planta":
+                            danyo = (int)(danyo * 1.5);
+                            break;
+
+                        case "Tierra":
+                            danyo = danyo;
+                            break;
+                    }
+                    break;
+
+                case "Planta":
+                    switch (tipo)
+                    {
+                        case "Fuego":
+                            danyo = (int)(danyo * 1.5);
+                            break;
+
+                        case "Agua":
+                            danyo = (int)(danyo * 0.5);
+                            break;
+
+                        case "Planta":
+                            danyo = danyo;
+                            break;
+
+                        case "Tierra":
+                            danyo = danyo;
+                            break;
+                    }
+                    break;
+
+                case "Tierra":
+                    switch (tipo)
+                    {
+                        case "Fuego":
+                            danyo = (int)(danyo * 0.5);
+                            break;
+
+                        case "Agua":
+                            danyo = danyo;
+                            break;
+
+                        case "Planta":
+                            danyo = danyo;
+                            break;
+
+                        case "Tierra":
+                            danyo = (int)(danyo * 1.5);
+                            break;
+                    }
+                    break;
+            }
+            return danyo;
+        }
     }
 }
