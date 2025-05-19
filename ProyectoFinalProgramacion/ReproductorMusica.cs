@@ -16,7 +16,7 @@ namespace ProyectoFinalProgramacion
         public ReproductorMusica()
         {
             // Construimos la ruta relativa a partir de la ruta de ejecucuion del proyecto
-            RutaPredeterminada = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..", "..", "..", "..", "Musica", "musicafondo.mp3"));
+            RutaPredeterminada = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","Musica","musicafondo.mp3"));
 
             if (!File.Exists(RutaPredeterminada))
             {

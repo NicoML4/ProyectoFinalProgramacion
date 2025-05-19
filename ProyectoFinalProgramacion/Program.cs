@@ -7,6 +7,7 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
         const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
+        static Ajustes ajustesglobales = new Ajustes();
         public static Usuario IniciarSesion(string rutaUsuarios)
         {
             Usuario usuarioGuardado;
@@ -259,18 +260,31 @@ namespace ProyectoFinalProgramacion
         {
             Console.Clear();
             string[] opcionesAjustes = {
-                "Reiniciar partida",
-                "Desbloquear todo",
-                "Atrás"
+            "Reproducir Música",
+            "Detener Música",
+            "Reiniciar partida",
+            "Desbloquear todo",
+            "Atrás"
             };
+
             int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesAjustes);
+
             switch (opcion)
             {
                 case 0:
+                    ajustesglobales.ReproducirMusica();
                     break;
                 case 1:
+                    ajustesglobales.DetenerMusica();
                     break;
                 case 2:
+                    ajustesglobales.ReiniciarPartida();
+                    break;
+                case 3:
+                    ajustesglobales.DesbloquearTodo();
+                    break;
+                case 4:
+                    // Volver o salir
                     break;
             }
         }
