@@ -251,75 +251,28 @@ namespace ProyectoFinalProgramacion
             }
             return ataque;
         }
-        private static void Jugar(Usuario usuario, Usuario enemigo, Pokemon[] baraja, Pokemon[] barajaEnemiga)
+        private static Ataque AtaqueEnemigo(Pokemon pokemonActualUsuario)
         {
-            Pokemon pokemonActualUsuario = baraja[0];
-            Pokemon pokemonActualEnemigo = barajaEnemiga[0];
-            Console.Clear();
-            Console.WriteLine($"{usuario.NombreUsuario} saca a {pokemonActualUsuario.GetNombre()}\n");
-            Console.WriteLine($"{enemigo.NombreUsuario} saca a {pokemonActualEnemigo.GetNombre()}\n");
-            Console.WriteLine("¡Que empiece el combate!");
-            int eleccion = 0;
-            while (RecorrerBaraja(baraja) && RecorrerBaraja(barajaEnemiga))
+            Random r = new Random();
+            Ataque ataque = null;
+            int eleccion = r.Next(1,3);
+            switch (eleccion)
             {
-                if (pokemonActualUsuario == null)
-                {
-                    pokemonActualUsuario = PokemonsVivos(baraja,pokemonActualUsuario);
-                }
-
-                eleccion = 0;
-                while (eleccion == 0)
-                {
-                    Console.WriteLine($"¿Que quieres hacer {usuario.NombreUsuario}?\n");
-                    Console.WriteLine($"1 - Atacar");
-                    Console.WriteLine($"2 - Cambiar de pokemon\n");
-                    try
-                    {
-                        eleccion = Convert.ToInt32(Console.ReadLine());
-                        switch (eleccion)
-                        {
-                            case 1:
-                                Console.Clear();
-                                AtaqueUsuario(pokemonActualUsuario);
-                                break;
-                            case 2:
-                                Console.Clear();
-                                pokemonActualUsuario = PokemonsVivos(baraja,pokemonActualUsuario);
-                                break;
-                            default:
-                                Console.Clear();
-                                Console.WriteLine("Opción no valida");
-                                eleccion = 0;
-                                break;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Introduce 1 o 2 para elegir el ataque que quieras");
-                        eleccion = 0;
-                    }
-                }
-
+                case 1:
+                    Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque1().GetNombreAtaque()}!");
+                    ataque = pokemonActualUsuario.GetAtaque1();
+                    break;
+                case 2:
+                    Console.WriteLine($"{pokemonActualUsuario.GetNombre()} ataca con {pokemonActualUsuario.GetAtaque2().GetNombreAtaque()}!");
+                    ataque = pokemonActualUsuario.GetAtaque2();
+                    break;
+                default:
+                    Console.WriteLine("Opción no valida");
+                    eleccion = 0;
+                    break;
             }
-            
-        }
-        public static void Inicializar(Usuario usuario)
-        {
-            if (CantidadMinimaPokemons(usuario))
-            {
-                string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
-                Console.WriteLine("Elige tus pokemons: ");
-                Pokemon [] baraja = ElegirPokemons(CargarPokemonsUsuario(rutaUsuario));
+            return ataque;
 
-                Usuario enemigo = elegirCombatiente(Combatientes(usuario));
-                Pokemon[] barajaEnemiga = ElegirPokemonEnemigo(CargarPokemonsUsuario("../../../Usuarios/" + enemigo.NombreUsuario + ".txt"));
-                Jugar(usuario,enemigo,baraja,barajaEnemiga);
-            }
-            else 
-            {
-                Console.WriteLine("No puedes combatir hasta que no tengas al menos 6 pokemons");
-            }
         }
 
         private static int Calcular(Ataque ataque, Pokemon pokemonActualEnemigo)
@@ -348,7 +301,7 @@ namespace ProyectoFinalProgramacion
                     tipo = "Tierra";
                     break;
 
-                case "Látigo":
+                case "Látigo Cepa":
                     danyo = 30;
                     tipo = "Planta";
                     break;
@@ -375,7 +328,7 @@ namespace ProyectoFinalProgramacion
         {
             switch (pokemonActualEnemigo.GetTipo())
             {
-                case "Fuego":
+                case "fuego":
                     switch (tipo)
                     {
                         case "Fuego":
@@ -384,10 +337,12 @@ namespace ProyectoFinalProgramacion
 
                         case "Agua":
                             danyo = (int)(danyo * 1.5);
+                            Console.WriteLine("¡Es superefizaz!");
                             break;
 
                         case "Planta":
                             danyo = (int)(danyo * 0.5);
+                            Console.WriteLine("Es poco efectivo...");
                             break;
 
                         case "Tierra":
@@ -396,11 +351,12 @@ namespace ProyectoFinalProgramacion
                     }
                     break;
 
-                case "Agua":
+                case "agua":
                     switch (tipo)
                     {
                         case "Fuego":
                             danyo = (int)(danyo * 0.5);
+                            Console.WriteLine("Es poco efectivo...");
                             break;
 
                         case "Agua":
@@ -409,6 +365,7 @@ namespace ProyectoFinalProgramacion
 
                         case "Planta":
                             danyo = (int)(danyo * 1.5);
+                            Console.WriteLine("¡Es superefizaz!");
                             break;
 
                         case "Tierra":
@@ -417,15 +374,17 @@ namespace ProyectoFinalProgramacion
                     }
                     break;
 
-                case "Planta":
+                case "planta":
                     switch (tipo)
                     {
                         case "Fuego":
                             danyo = (int)(danyo * 1.5);
+                            Console.WriteLine("¡Es superefizaz!");
                             break;
 
                         case "Agua":
                             danyo = (int)(danyo * 0.5);
+                            Console.WriteLine("Es poco efectivo...");
                             break;
 
                         case "Planta":
@@ -438,11 +397,12 @@ namespace ProyectoFinalProgramacion
                     }
                     break;
 
-                case "Tierra":
+                case "tierra":
                     switch (tipo)
                     {
                         case "Fuego":
                             danyo = (int)(danyo * 0.5);
+                            Console.WriteLine("Es poco efectivo...");
                             break;
 
                         case "Agua":
@@ -455,11 +415,123 @@ namespace ProyectoFinalProgramacion
 
                         case "Tierra":
                             danyo = (int)(danyo * 1.5);
+                            Console.WriteLine("¡Es superefizaz!");
                             break;
                     }
                     break;
             }
+            Console.WriteLine($"Inflige {danyo} puntos de daño");
             return danyo;
         }
+
+        private static void Jugar(Usuario usuario, Usuario enemigo, Pokemon[] baraja, Pokemon[] barajaEnemiga)
+        {
+            Pokemon pokemonActualUsuario = baraja[0];
+            Pokemon pokemonActualEnemigo = barajaEnemiga[0];
+            Console.Clear();
+            Console.WriteLine($"{usuario.NombreUsuario} saca a {pokemonActualUsuario.GetNombre()}\n");
+            Console.WriteLine($"{enemigo.NombreUsuario} saca a {pokemonActualEnemigo.GetNombre()}\n");
+            Console.WriteLine("¡Que empiece el combate!");
+            int eleccion = 0;
+            int contadorPokemonEnemigo =1;
+            while (RecorrerBaraja(baraja) && RecorrerBaraja(barajaEnemiga))
+            {
+                if (pokemonActualUsuario == null)
+                {
+                    pokemonActualUsuario = PokemonsVivos(baraja,pokemonActualUsuario);
+                }
+
+                eleccion = 0;
+                while (eleccion == 0)
+                {
+                    Console.WriteLine($"¿Que quieres hacer {usuario.NombreUsuario}?\n");
+                    Console.WriteLine($"1 - Atacar");
+                    Console.WriteLine($"2 - Cambiar de pokemon\n");
+                    try
+                    {
+                        eleccion = Convert.ToInt32(Console.ReadLine());
+                        switch (eleccion)
+                        {
+                            case 1:
+                                Console.Clear();
+                                pokemonActualEnemigo.RecibirDano(Calcular(AtaqueUsuario(pokemonActualUsuario), pokemonActualEnemigo));
+                                Console.WriteLine($"Vida actual de {pokemonActualEnemigo.GetNombre()}:{pokemonActualEnemigo.GetVida()}");
+                                Console.ReadKey(true);
+                                Console.Clear();
+                                break;
+                            case 2:
+                                Console.Clear();
+                                pokemonActualUsuario = PokemonsVivos(baraja, pokemonActualUsuario);
+                                break;
+                            default:
+                                Console.Clear();
+                                Console.WriteLine("Opción no valida");
+                                eleccion = 0;
+                                break;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Introduce 1 o 2 para elegir el ataque que quieras");
+                        eleccion = 0;
+                    }
+                }
+                    if (pokemonActualEnemigo.GetVida() == 0 && contadorPokemonEnemigo != 6)
+                    {
+                        Console.WriteLine($"¡{pokemonActualEnemigo.GetNombre()} ha sido debilitado!");
+                        pokemonActualEnemigo = barajaEnemiga[contadorPokemonEnemigo];
+                        contadorPokemonEnemigo++;
+                        Console.WriteLine($"¡{enemigo.NombreUsuario} saca a {pokemonActualEnemigo.GetNombre()}!");
+                    }
+                    if (!RecorrerBaraja(barajaEnemiga))
+                    {
+                        Console.WriteLine("Has ganado felicidades");
+                    }
+                    else 
+                    {
+                        Console.WriteLine($"Turno de {enemigo.NombreUsuario}");
+                        pokemonActualUsuario.RecibirDano(Calcular(AtaqueEnemigo(pokemonActualEnemigo), pokemonActualEnemigo));
+                        Console.WriteLine($"Vida actual de {pokemonActualUsuario.GetNombre()}:{pokemonActualUsuario.GetVida()}");
+                        if (pokemonActualUsuario.GetVida() == 0)
+                        {
+                            if (RecorrerBaraja(baraja))
+                            {
+                                Console.WriteLine($"¡{pokemonActualUsuario.GetNombre()} ha sido debilitado!");
+                                pokemonActualUsuario = PokemonsVivos(baraja, pokemonActualUsuario);
+                                Console.WriteLine($"¡Sacas a {pokemonActualUsuario.GetNombre()}!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Has perdido...");
+                            }
+                        }
+                    }
+                
+
+            }
+            
+        }
+
+
+        public static void Inicializar(Usuario usuario)
+        {
+            if (CantidadMinimaPokemons(usuario))
+            {
+                string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
+                Console.WriteLine("Elige tus pokemons: ");
+                Pokemon [] baraja = ElegirPokemons(CargarPokemonsUsuario(rutaUsuario));
+
+                Usuario enemigo = elegirCombatiente(Combatientes(usuario));
+                Pokemon[] barajaEnemiga = ElegirPokemonEnemigo(CargarPokemonsUsuario("../../../Usuarios/" + enemigo.NombreUsuario + ".txt"));
+                Jugar(usuario,enemigo,baraja,barajaEnemiga);
+            }
+            else 
+            {
+                Console.WriteLine("No puedes combatir hasta que no tengas al menos 6 pokemons");
+            }
+        }
+
+        
     }
 }
