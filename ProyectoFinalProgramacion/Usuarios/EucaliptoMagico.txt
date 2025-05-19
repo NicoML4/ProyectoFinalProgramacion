@@ -1,0 +1,5 @@
+9;Blastoise;56;agua;Gruñido;Burbuja;18/05/2025 20:38:37;../../../assets/blastoise.txt
+54;Psyduck;116;agua;Burbuja;Pistola Agua;18/05/2025 20:38:37;../../../assets/psyduck.txt
+55;Golduck;44;agua;Burbuja;Burbuja;18/05/2025 20:38:37;../../../assets/golduck.txt
+109;Koffing;82;agua;Látigo Cepa;Arañazo;18/05/2025 20:38:37;../../../assets/koffing.txt
+131;Lapras;80;agua;Ascuas;Impactrueno;18/05/2025 20:38:37;../../../assets/lapras.txt
