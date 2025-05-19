@@ -169,7 +169,7 @@ namespace ProyectoFinalProgramacion
             }
             return contador == 6? false:true;
         }
-        private static Pokemon PokemonsVivos(Pokemon[] baraja)
+        private static Pokemon PokemonsVivos(Pokemon[] baraja,Pokemon pokemonAnterior)
         {
             Pokemon pokemonElegido = null;
             int eleccion=0;
@@ -195,6 +195,10 @@ namespace ProyectoFinalProgramacion
                     {
                         Console.WriteLine($"Adelante {baraja[eleccion - 1].GetNombre()}!");
                         pokemonElegido = baraja[eleccion - 1];
+                        if (pokemonElegido == pokemonAnterior)
+                        {
+                            Console.WriteLine("(Otra vez)");                      
+                        }
                     }
                     else
                     {
@@ -260,7 +264,7 @@ namespace ProyectoFinalProgramacion
             {
                 if (pokemonActualUsuario == null)
                 {
-                    pokemonActualUsuario = PokemonsVivos(baraja);
+                    pokemonActualUsuario = PokemonsVivos(baraja,pokemonActualUsuario);
                 }
 
                 eleccion = 0;
@@ -280,7 +284,7 @@ namespace ProyectoFinalProgramacion
                                 break;
                             case 2:
                                 Console.Clear();
-                                pokemonActualUsuario = PokemonsVivos(baraja);
+                                pokemonActualUsuario = PokemonsVivos(baraja,pokemonActualUsuario);
                                 break;
                             default:
                                 Console.Clear();
