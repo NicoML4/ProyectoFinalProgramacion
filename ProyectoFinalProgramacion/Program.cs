@@ -256,7 +256,7 @@ namespace ProyectoFinalProgramacion
                 break;
             }
         }
-        public static void Ajustes()
+        public static void Ajustes(Usuario usuarioLogeado)
         {
             Console.Clear();
             string[] opcionesAjustes = {
@@ -278,7 +278,7 @@ namespace ProyectoFinalProgramacion
                     ajustesglobales.DetenerMusica();
                     break;
                 case 2:
-                    ajustesglobales.ReiniciarPartida();
+                    ajustesglobales.ReiniciarPartida(usuarioLogeado);
                     break;
                 case 3:
                     ajustesglobales.DesbloquearTodo();
@@ -313,7 +313,7 @@ namespace ProyectoFinalProgramacion
                         Combate.Inicializar(usuarioLogeado);
                         break;
                     case 3:
-                        Ajustes();
+                        Ajustes(usuarioLogeado);
                         break;
                     case 4:
                         ConsolaInterfaz.WriteLineCentr("Saliendo");
