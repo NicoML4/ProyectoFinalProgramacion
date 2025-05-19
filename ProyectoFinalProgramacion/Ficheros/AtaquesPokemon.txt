@@ -1,0 +1,8 @@
+Ascuas;30;Fuego
+Pistola Agua;50;Agua
+Gruñido;10;Tierra
+Impactrueno;60;Tierra
+Látigo Cepa;30;Planta
+Arañazo;20;Fuego
+Placaje;15;Planta
+Burbuja;30;Agua
