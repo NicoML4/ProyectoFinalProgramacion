@@ -26,10 +26,10 @@
 26;Raichu;41;tierra;Ascuas;Impactrueno;null;../../../assets/raichu.txt
 27;Sandshrew;102;tierra;Ascuas;Impactrueno;null;../../../assets/sandshrew.txt
 28;Sandslash;79;tierra;Ascuas;Látigo Cepa;null;../../../assets/sandslash.txt
-29;Nidoran(F);37;planta;Placaje;Impactrueno;null;../../../assets/nidoran(f).txt
+29;Nidoran(F);37;planta;Placaje;Impactrueno;null;../../../assets/nidoranf.txt
 30;Nidorina;76;planta;Placaje;Gruñido;null;../../../assets/nidorina.txt
 31;Nidoqueen;88;planta;Látigo Cepa;Ascuas;null;../../../assets/nidoqueen.txt
-32;Nidoran(M);105;tierra;Arañazo;Arañazo;null;../../../assets/nidoran(m).txt
+32;Nidoran(M);105;tierra;Arañazo;Arañazo;null;../../../assets/nidoranm.txt
 33;Nidorino;104;agua;Placaje;Arañazo;null;../../../assets/nidorino.txt
 34;Nidoking;37;agua;Placaje;Arañazo;null;../../../assets/nidoking.txt
 35;Clefairy;76;planta;Ascuas;Ascuas;null;../../../assets/clefairy.txt
@@ -80,7 +80,7 @@
 80;Slowbro;62;tierra;Gruñido;Arañazo;null;../../../assets/slowbro.txt
 81;Magnemite;107;fuego;Arañazo;Arañazo;null;../../../assets/magnemite.txt
 82;Magneton;68;tierra;Arañazo;Burbuja;null;../../../assets/magneton.txt
-83;Farfetch’d;44;tierra;Ascuas;Gruñido;null;../../../assets/farfetch’d.txt
+83;Farfetch’d;44;tierra;Ascuas;Gruñido;null;../../../assets/farfetchd.txt
 84;Doduo;45;tierra;Látigo Cepa;Pistola Agua;null;../../../assets/doduo.txt
 85;Dodrio;76;agua;Látigo Cepa;Gruñido;null;../../../assets/dodrio.txt
 86;Seel;74;planta;Burbuja;Placaje;null;../../../assets/seel.txt

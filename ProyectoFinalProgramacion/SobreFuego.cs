@@ -13,25 +13,67 @@ namespace ProyectoFinalProgramacion
             string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
             Random numRandom = new Random();
             List<Pokemon> pokemons = CargarTodosPokemons();
-            List<Pokemon> tipoFuego = pokemons.Where(p => p.GetTipo() == "fuego").ToList();
             List<Pokemon> pokemonsUsuario = CargarPokemonsUsuario(rutaUsuario);
             HashSet<int> randoms = new HashSet<int>();
 
             while (randoms.Count < 5)
             {
-                randoms.Add(numRandom.Next(0, tipoFuego.Count));
+                randoms.Add(numRandom.Next(0, 151));
             }
+
             foreach (int numero in randoms)
             {
-                Console.WriteLine($"Pokemon obtenido: {tipoFuego[numero].GetNombre()}");
-                if (!pokemonsUsuario.Contains(tipoFuego[numero]))
+                MostrarPokemon(pokemons[numero]);
+
+                if (!pokemonsUsuario.Contains(pokemons[numero]))
                 {
-                    tipoFuego[numero].SetFechaObtencion(DateTime.Now);
-                    pokemonsUsuario.Add(tipoFuego[numero]);
+                    pokemons[numero].SetFechaObtencion(DateTime.Now);
+                    pokemonsUsuario.Add(pokemons[numero]);
                 }
+
                 pokemonsUsuario.Sort((a, b) => a.GetId().CompareTo(b.GetId()));
+
+                Console.WriteLine("\nPresiona la barra espaciadora para ver el siguiente Pokémon...");
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter) { }
+                Console.Clear();
             }
+
             File.WriteAllLines(rutaUsuario, pokemonsUsuario.Select(p => p.ToString()).ToArray());
+        }
+        private static string AjustarLinea(string linea, int maxWidth)
+        {
+            if (string.IsNullOrWhiteSpace(linea)) return linea;
+
+            int originalWidth = linea.Length;
+            if (originalWidth <= maxWidth) return linea;
+
+            double factor = (double)maxWidth / originalWidth;
+            int newWidth = (int)(originalWidth * factor);
+
+            return new string(linea.Take(newWidth).ToArray());
+        }
+
+
+        private static void MostrarPokemon(Pokemon pokemon)
+        {
+            Console.Clear();
+            string assetPath = $"../../../assets/{pokemon.GetNombre()}.txt";
+
+            if (File.Exists(assetPath))
+            {
+                string[] assetLines = File.ReadAllLines(assetPath);
+                int maxWidth = 100;
+
+                foreach (string line in assetLines)
+                {
+                    Console.WriteLine(AjustarLinea(line, maxWidth));
+                }
+            }
+            else
+            {
+                Console.WriteLine("[No se encontró el dibujo ASCII]");
+            }
+            Console.WriteLine($"Pokemon obtenido: {pokemon.GetNombre()}");
         }
     }
 }
