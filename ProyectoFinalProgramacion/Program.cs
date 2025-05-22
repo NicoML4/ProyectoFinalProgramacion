@@ -23,6 +23,7 @@ namespace ProyectoFinalProgramacion
                 {
                     ConsolaInterfaz.WriteLineCentr("No has introducido nada");
                 }
+
             }
             while (contrasenaUsuarioLogeado == "")
             {
