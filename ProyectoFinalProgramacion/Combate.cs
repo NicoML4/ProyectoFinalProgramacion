@@ -521,10 +521,16 @@ namespace ProyectoFinalProgramacion
                 string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
                 Console.WriteLine("Elige tus pokemons: ");
                 Pokemon [] baraja = ElegirPokemons(CargarPokemonsUsuario(rutaUsuario));
-
-                Usuario enemigo = elegirCombatiente(Combatientes(usuario));
-                Pokemon[] barajaEnemiga = ElegirPokemonEnemigo(CargarPokemonsUsuario("../../../Usuarios/" + enemigo.NombreUsuario + ".txt"));
-                Jugar(usuario,enemigo,baraja,barajaEnemiga);
+                if (Combatientes(usuario).Count > 0)
+                {
+                    Usuario enemigo = elegirCombatiente(Combatientes(usuario));
+                    Pokemon[] barajaEnemiga = ElegirPokemonEnemigo(CargarPokemonsUsuario("../../../Usuarios/" + enemigo.NombreUsuario + ".txt"));
+                    Jugar(usuario, enemigo, baraja, barajaEnemiga);
+                }
+                else
+                {
+                    Console.WriteLine("No hay combatientes con suficientes pokemón para enfrentarte");
+                }
             }
             else 
             {
