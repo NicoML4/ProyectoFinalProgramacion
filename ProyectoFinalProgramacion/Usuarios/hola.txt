@@ -1,0 +1,151 @@
+1;Bulbasaur;50;tierra;Ascuas;Pistola Agua;26/05/2025;../../../assets/bulbasaur.txt
+2;Ivysaur;51;tierra;Ascuas;Pistola Agua;26/05/2025;../../../assets/ivysaur.txt
+3;Venusaur;87;agua;Gruñido;Pistola Agua;26/05/2025;../../../assets/venusaur.txt
+4;Charmander;105;agua;Impactrueno;Pistola Agua;26/05/2025;../../../assets/charmander.txt
+5;Charmeleon;106;fuego;Látigo Cepa;Arañazo;26/05/2025;../../../assets/charmeleon.txt
+6;Charizard;118;agua;Gruñido;Placaje;26/05/2025;../../../assets/charizard.txt
+7;Squirtle;46;agua;Arañazo;Pistola Agua;26/05/2025;../../../assets/squirtle.txt
+8;Wartortle;64;agua;Placaje;Burbuja;26/05/2025;../../../assets/wartortle.txt
+9;Blastoise;56;agua;Gruñido;Burbuja;26/05/2025;../../../assets/blastoise.txt
+10;Caterpie;75;planta;Arañazo;Impactrueno;26/05/2025;../../../assets/caterpie.txt
+11;Metapod;116;planta;Placaje;Burbuja;26/05/2025;../../../assets/metapod.txt
+12;Butterfree;88;planta;Gruñido;Placaje;26/05/2025;../../../assets/butterfree.txt
+13;Weedle;119;planta;Burbuja;Gruñido;26/05/2025;../../../assets/weedle.txt
+14;Kakuna;78;planta;Arañazo;Burbuja;26/05/2025;../../../assets/kakuna.txt
+15;Beedrill;86;planta;Arañazo;Pistola Agua;26/05/2025;../../../assets/beedrill.txt
+16;Pidgey;110;fuego;Pistola Agua;Burbuja;26/05/2025;../../../assets/pidgey.txt
+17;Pidgeotto;50;fuego;Gruñido;Placaje;26/05/2025;../../../assets/pidgeotto.txt
+18;Pidgeot;63;tierra;Placaje;Ascuas;26/05/2025;../../../assets/pidgeot.txt
+19;Rattata;37;planta;Látigo Cepa;Látigo Cepa;26/05/2025;../../../assets/rattata.txt
+20;Raticate;111;tierra;Arañazo;Pistola Agua;26/05/2025;../../../assets/raticate.txt
+21;Spearow;95;planta;Ascuas;Placaje;26/05/2025;../../../assets/spearow.txt
+22;Fearow;118;agua;Látigo Cepa;Pistola Agua;26/05/2025;../../../assets/fearow.txt
+23;Ekans;83;planta;Placaje;Arañazo;26/05/2025;../../../assets/ekans.txt
+24;Arbok;68;fuego;Ascuas;Arañazo;26/05/2025;../../../assets/arbok.txt
+25;Pikachu;52;tierra;Placaje;Burbuja;26/05/2025;../../../assets/pikachu.txt
+26;Raichu;41;tierra;Ascuas;Impactrueno;26/05/2025;../../../assets/raichu.txt
+27;Sandshrew;102;tierra;Ascuas;Impactrueno;26/05/2025;../../../assets/sandshrew.txt
+28;Sandslash;79;tierra;Ascuas;Látigo Cepa;26/05/2025;../../../assets/sandslash.txt
+29;Nidoran(F);37;planta;Placaje;Impactrueno;26/05/2025;../../../assets/nidoranf.txt
+30;Nidorina;76;planta;Placaje;Gruñido;26/05/2025;../../../assets/nidorina.txt
+31;Nidoqueen;88;planta;Látigo Cepa;Ascuas;26/05/2025;../../../assets/nidoqueen.txt
+32;Nidoran(M);105;tierra;Arañazo;Arañazo;26/05/2025;../../../assets/nidoranm.txt
+33;Nidorino;104;agua;Placaje;Arañazo;26/05/2025;../../../assets/nidorino.txt
+34;Nidoking;37;agua;Placaje;Arañazo;26/05/2025;../../../assets/nidoking.txt
+35;Clefairy;76;planta;Ascuas;Ascuas;26/05/2025;../../../assets/clefairy.txt
+36;Clefable;85;planta;Placaje;Gruñido;26/05/2025;../../../assets/clefable.txt
+37;Vulpix;82;tierra;Pistola Agua;Arañazo;26/05/2025;../../../assets/vulpix.txt
+38;Ninetales;102;agua;Gruñido;Placaje;26/05/2025;../../../assets/ninetales.txt
+39;Jigglypuff;110;agua;Placaje;Ascuas;26/05/2025;../../../assets/jigglypuff.txt
+40;Wigglytuff;80;agua;Placaje;Ascuas;26/05/2025;../../../assets/wigglytuff.txt
+41;Zubat;83;tierra;Burbuja;Gruñido;26/05/2025;../../../assets/zubat.txt
+42;Golbat;81;tierra;Arañazo;Gruñido;26/05/2025;../../../assets/golbat.txt
+43;Oddish;90;fuego;Impactrueno;Ascuas;26/05/2025;../../../assets/oddish.txt
+44;Gloom;66;tierra;Arañazo;Pistola Agua;26/05/2025;../../../assets/gloom.txt
+45;Vileplume;85;planta;Impactrueno;Placaje;26/05/2025;../../../assets/vileplume.txt
+46;Paras;43;planta;Placaje;Gruñido;26/05/2025;../../../assets/paras.txt
+47;Parasect;86;planta;Pistola Agua;Impactrueno;26/05/2025;../../../assets/parasect.txt
+48;Venonat;100;planta;Pistola Agua;Pistola Agua;26/05/2025;../../../assets/venonat.txt
+49;Venomoth;75;planta;Ascuas;Pistola Agua;26/05/2025;../../../assets/venomoth.txt
+50;Diglett;37;fuego;Pistola Agua;Burbuja;26/05/2025;../../../assets/diglett.txt
+51;Dugtrio;111;agua;Burbuja;Gruñido;26/05/2025;../../../assets/dugtrio.txt
+52;Meowth;48;tierra;Placaje;Impactrueno;26/05/2025;../../../assets/meowth.txt
+53;Persian;49;agua;Látigo Cepa;Látigo Cepa;26/05/2025;../../../assets/persian.txt
+54;Psyduck;116;agua;Burbuja;Pistola Agua;26/05/2025;../../../assets/psyduck.txt
+55;Golduck;44;agua;Burbuja;Burbuja;26/05/2025;../../../assets/golduck.txt
+56;Mankey;48;tierra;Arañazo;Arañazo;26/05/2025;../../../assets/mankey.txt
+57;Primeape;47;agua;Placaje;Burbuja;26/05/2025;../../../assets/primeape.txt
+58;Growlithe;110;planta;Burbuja;Gruñido;26/05/2025;../../../assets/growlithe.txt
+59;Arcanine;103;planta;Burbuja;Gruñido;26/05/2025;../../../assets/arcanine.txt
+60;Poliwag;81;agua;Burbuja;Impactrueno;26/05/2025;../../../assets/poliwag.txt
+61;Poliwhirl;39;agua;Látigo Cepa;Impactrueno;26/05/2025;../../../assets/poliwhirl.txt
+62;Poliwrath;89;agua;Placaje;Látigo Cepa;26/05/2025;../../../assets/poliwrath.txt
+63;Abra;52;tierra;Burbuja;Pistola Agua;26/05/2025;../../../assets/abra.txt
+64;Kadabra;41;tierra;Gruñido;Burbuja;26/05/2025;../../../assets/kadabra.txt
+65;Alakazam;119;fuego;Arañazo;Gruñido;26/05/2025;../../../assets/alakazam.txt
+66;Machop;51;tierra;Placaje;Placaje;26/05/2025;../../../assets/machop.txt
+67;Machoke;109;agua;Placaje;Ascuas;26/05/2025;../../../assets/machoke.txt
+68;Machamp;43;tierra;Gruñido;Pistola Agua;26/05/2025;../../../assets/machamp.txt
+69;Bellsprout;59;tierra;Burbuja;Gruñido;26/05/2025;../../../assets/bellsprout.txt
+70;Weepinbell;72;fuego;Arañazo;Pistola Agua;26/05/2025;../../../assets/weepinbell.txt
+71;Victreebel;41;planta;Ascuas;Pistola Agua;26/05/2025;../../../assets/victreebel.txt
+72;Tentacool;89;agua;Burbuja;Ascuas;26/05/2025;../../../assets/tentacool.txt
+73;Tentacruel;88;agua;Burbuja;Gruñido;26/05/2025;../../../assets/tentacruel.txt
+74;Geodude;77;tierra;Arañazo;Gruñido;26/05/2025;../../../assets/geodude.txt
+75;Graveler;60;tierra;Pistola Agua;Placaje;26/05/2025;../../../assets/graveler.txt
+76;Golem;61;tierra;Arañazo;Ascuas;26/05/2025;../../../assets/golem.txt
+77;Ponyta;119;tierra;Arañazo;Gruñido;26/05/2025;../../../assets/ponyta.txt
+78;Rapidash;50;planta;Arañazo;Impactrueno;26/05/2025;../../../assets/rapidash.txt
+79;Slowpoke;83;tierra;Arañazo;Impactrueno;26/05/2025;../../../assets/slowpoke.txt
+80;Slowbro;62;tierra;Gruñido;Arañazo;26/05/2025;../../../assets/slowbro.txt
+81;Magnemite;107;fuego;Arañazo;Arañazo;26/05/2025;../../../assets/magnemite.txt
+82;Magneton;68;tierra;Arañazo;Burbuja;26/05/2025;../../../assets/magneton.txt
+83;Farfetch’d;44;tierra;Ascuas;Gruñido;26/05/2025;../../../assets/farfetchd.txt
+84;Doduo;45;tierra;Látigo Cepa;Pistola Agua;26/05/2025;../../../assets/doduo.txt
+85;Dodrio;76;agua;Látigo Cepa;Gruñido;26/05/2025;../../../assets/dodrio.txt
+86;Seel;74;planta;Burbuja;Placaje;26/05/2025;../../../assets/seel.txt
+87;Dewgong;56;planta;Ascuas;Placaje;26/05/2025;../../../assets/dewgong.txt
+88;Grimer;75;agua;Ascuas;Arañazo;26/05/2025;../../../assets/grimer.txt
+89;Muk;76;fuego;Burbuja;Impactrueno;26/05/2025;../../../assets/muk.txt
+90;Shellder;84;planta;Impactrueno;Gruñido;26/05/2025;../../../assets/shellder.txt
+91;Cloyster;98;fuego;Pistola Agua;Pistola Agua;26/05/2025;../../../assets/cloyster.txt
+92;Gastly;106;fuego;Placaje;Ascuas;26/05/2025;../../../assets/gastly.txt
+93;Haunter;56;fuego;Gruñido;Gruñido;26/05/2025;../../../assets/haunter.txt
+94;Gengar;37;fuego;Ascuas;Arañazo;26/05/2025;../../../assets/gengar.txt
+95;Onix;39;tierra;Impactrueno;Látigo Cepa;26/05/2025;../../../assets/onix.txt
+96;Drowzee;94;fuego;Pistola Agua;Placaje;26/05/2025;../../../assets/drowzee.txt
+97;Hypno;110;fuego;Gruñido;Ascuas;26/05/2025;../../../assets/hypno.txt
+98;Krabby;60;agua;Ascuas;Arañazo;26/05/2025;../../../assets/krabby.txt
+99;Kingler;110;agua;Pistola Agua;Látigo Cepa;26/05/2025;../../../assets/kingler.txt
+100;Voltorb;45;fuego;Impactrueno;Burbuja;26/05/2025;../../../assets/voltorb.txt
+101;Electrode;70;fuego;Placaje;Látigo Cepa;26/05/2025;../../../assets/electrode.txt
+102;Exeggcute;101;fuego;Arañazo;Placaje;26/05/2025;../../../assets/exeggcute.txt
+103;Exeggutor;99;tierra;Ascuas;Arañazo;26/05/2025;../../../assets/exeggutor.txt
+104;Cubone;46;tierra;Placaje;Arañazo;26/05/2025;../../../assets/cubone.txt
+105;Marowak;108;tierra;Arañazo;Látigo Cepa;26/05/2025;../../../assets/marowak.txt
+106;Hitmonlee;72;agua;Pistola Agua;Burbuja;26/05/2025;../../../assets/hitmonlee.txt
+107;Hitmonchan;54;fuego;Látigo Cepa;Placaje;26/05/2025;../../../assets/hitmonchan.txt
+108;Lickitung;73;planta;Arañazo;Ascuas;26/05/2025;../../../assets/lickitung.txt
+109;Koffing;82;agua;Látigo Cepa;Arañazo;26/05/2025;../../../assets/koffing.txt
+110;Weezing;97;tierra;Pistola Agua;Burbuja;26/05/2025;../../../assets/weezing.txt
+111;Rhyhorn;111;tierra;Placaje;Placaje;26/05/2025;../../../assets/rhyhorn.txt
+112;Rhydon;90;tierra;Ascuas;Burbuja;26/05/2025;../../../assets/rhydon.txt
+113;Chansey;89;fuego;Gruñido;Gruñido;26/05/2025;../../../assets/chansey.txt
+114;Tangela;37;tierra;Placaje;Pistola Agua;26/05/2025;../../../assets/tangela.txt
+115;Kangaskhan;90;tierra;Burbuja;Impactrueno;26/05/2025;../../../assets/kangaskhan.txt
+116;Horsea;78;agua;Ascuas;Arañazo;26/05/2025;../../../assets/horsea.txt
+117;Seadra;103;agua;Impactrueno;Pistola Agua;26/05/2025;../../../assets/seadra.txt
+118;Goldeen;64;planta;Látigo Cepa;Placaje;26/05/2025;../../../assets/goldeen.txt
+119;Seaking;108;agua;Impactrueno;Ascuas;26/05/2025;../../../assets/seaking.txt
+120;Staryu;67;tierra;Pistola Agua;Placaje;26/05/2025;../../../assets/staryu.txt
+121;Starmie;59;planta;Placaje;Burbuja;26/05/2025;../../../assets/starmie.txt
+122;MrMime;74;planta;Látigo Cepa;Placaje;26/05/2025;../../../assets/mrmime.txt
+123;Scyther;99;planta;Ascuas;Gruñido;26/05/2025;../../../assets/scyther.txt
+124;Jynx;64;fuego;Arañazo;Ascuas;26/05/2025;../../../assets/jynx.txt
+125;Electabuzz;110;planta;Burbuja;Pistola Agua;26/05/2025;../../../assets/electabuzz.txt
+126;Magmar;79;agua;Pistola Agua;Arañazo;26/05/2025;../../../assets/magmar.txt
+127;Pinsir;102;planta;Látigo Cepa;Placaje;26/05/2025;../../../assets/pinsir.txt
+128;Tauros;85;tierra;Impactrueno;Gruñido;26/05/2025;../../../assets/tauros.txt
+129;Magikarp;78;agua;Látigo Cepa;Burbuja;26/05/2025;../../../assets/magikarp.txt
+130;Gyarados;89;agua;Arañazo;Ascuas;26/05/2025;../../../assets/gyarados.txt
+131;Lapras;80;agua;Ascuas;Impactrueno;26/05/2025;../../../assets/lapras.txt
+132;Ditto;43;tierra;Burbuja;Burbuja;26/05/2025;../../../assets/ditto.txt
+133;Eevee;60;planta;Placaje;Pistola Agua;26/05/2025;../../../assets/eevee.txt
+134;Vaporeon;53;tierra;Arañazo;Gruñido;26/05/2025;../../../assets/vaporeon.txt
+135;Jolteon;80;planta;Ascuas;Placaje;26/05/2025;../../../assets/jolteon.txt
+136;Flareon;120;agua;Burbuja;Impactrueno;26/05/2025;../../../assets/flareon.txt
+137;Porygon;39;fuego;Pistola Agua;Placaje;26/05/2025;../../../assets/porygon.txt
+138;Omanyte;93;tierra;Látigo Cepa;Burbuja;26/05/2025;../../../assets/omanyte.txt
+139;Omastar;108;tierra;Impactrueno;Ascuas;26/05/2025;../../../assets/omastar.txt
+140;Kabuto;112;fuego;Placaje;Gruñido;26/05/2025;../../../assets/kabuto.txt
+141;Kabutops;120;planta;Gruñido;Gruñido;26/05/2025;../../../assets/kabutops.txt
+142;Aerodactyl;46;tierra;Impactrueno;Látigo Cepa;26/05/2025;../../../assets/aerodactyl.txt
+143;Snorlax;55;fuego;Burbuja;Burbuja;26/05/2025;../../../assets/snorlax.txt
+144;Articuno;103;tierra;Impactrueno;Arañazo;26/05/2025;../../../assets/articuno.txt
+145;Zapdos;107;agua;Burbuja;Burbuja;26/05/2025;../../../assets/zapdos.txt
+146;Moltres;51;fuego;Gruñido;Impactrueno;26/05/2025;../../../assets/moltres.txt
+147;Dratini;51;fuego;Placaje;Impactrueno;26/05/2025;../../../assets/dratini.txt
+148;Dragonair;84;planta;Placaje;Pistola Agua;26/05/2025;../../../assets/dragonair.txt
+149;Dragonite;74;tierra;Pistola Agua;Burbuja;26/05/2025;../../../assets/dragonite.txt
+150;Mewtwo;92;fuego;Impactrueno;Gruñido;26/05/2025;../../../assets/mewtwo.txt
+151;Mew;99;fuego;Látigo Cepa;Ascuas;26/05/2025;../../../assets/mew.txt

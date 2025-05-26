@@ -34,10 +34,7 @@ namespace ProyectoFinalProgramacion
         public void ReiniciarPartida(Usuario usuarioLogeado)
         {
             File.WriteAllText($"../../../Usuarios/{usuarioLogeado.NombreUsuario}.txt","");
-        }
-        public void DesbloquearTodo()
-        {
-            // Desbloqueamos todo
+            Console.WriteLine("Tu partida ha sido Reiniciada !!");
         }
     }
 }

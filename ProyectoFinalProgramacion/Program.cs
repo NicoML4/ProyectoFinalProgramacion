@@ -257,7 +257,7 @@ namespace ProyectoFinalProgramacion
                 break;
             }
         }
-        public static void Ajustes(Usuario usuarioLogeado)
+        public static void Ajustes(Usuario usuarioLogeado,string rutaUsuario)
         {
             Console.Clear();
             string[] opcionesAjustes = {
@@ -282,14 +282,33 @@ namespace ProyectoFinalProgramacion
                     ajustesglobales.ReiniciarPartida(usuarioLogeado);
                     break;
                 case 3:
-                    ajustesglobales.DesbloquearTodo();
+                    DesbloquearTodo(rutaUsuario);
                     break;
                 case 4:
                     // Volver o salir
                     break;
             }
         }
-        public static void MenuOpciones(Usuario usuarioLogeado)
+        public static void DesbloquearTodo(string rutaUsuario)
+        {
+            List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+            DateTime fechaActual = DateTime.Now;
+
+            List<string> lineas = new List<string>();
+
+            foreach (Pokemon p in listaPokemons)
+            {
+                string linea = p.GetId() + ";" + p.GetNombre() + ";" + p.GetVida() + ";" +
+                               p.GetTipo() + ";" + p.GetAtaque1().GetNombreAtaque() + ";" +
+                               p.GetAtaque2().GetNombreAtaque() + ";" + fechaActual.ToString("dd/MM/yyyy") + ";" +
+                               p.getAsset();
+
+                lineas.Add(linea);
+            }
+            File.WriteAllLines(rutaUsuario, lineas);
+            Console.WriteLine("Todos los pokemons han sido desbloqueados!!");
+        }
+        public static void MenuOpciones(Usuario usuarioLogeado,string rutaUsuario)
         {
             string[] opcionesMenuPrincipal = {
                 "Abrir sobres",
@@ -314,7 +333,7 @@ namespace ProyectoFinalProgramacion
                         Combate.Inicializar(usuarioLogeado);
                         break;
                     case 3:
-                        Ajustes(usuarioLogeado);
+                        Ajustes(usuarioLogeado,rutaUsuario);
                         break;
                     case 4:
                         ConsolaInterfaz.WriteLineCentr("Saliendo");
@@ -359,6 +378,8 @@ namespace ProyectoFinalProgramacion
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ConsolaInterfaz.ColorLetras();
             string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
+            Usuario usuarioLogeado = Login(rutaUsuarios);
+            string rutaUsuario = "../../../Usuarios/" + usuarioLogeado.NombreUsuario + ".txt";
             if (!File.Exists(rutaUsuarios))
             {
                 File.WriteAllText(rutaUsuarios, "");
@@ -367,8 +388,7 @@ namespace ProyectoFinalProgramacion
             {
                 Console.WriteLine("Esto existe");
             }
-            Usuario usuarioLogeado = Login(rutaUsuarios);
-            MenuOpciones(usuarioLogeado);
+            MenuOpciones(usuarioLogeado,rutaUsuario);
         }
     }
 }
