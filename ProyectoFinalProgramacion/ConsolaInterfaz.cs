@@ -26,6 +26,53 @@ namespace ProyectoFinalProgramacion
             Console.Write(new string(' ', Math.Max(0, espaciosIzquierda)) + texto);
         }
 
+        public static void MostrarListaConScroll(List<Pokemon> lista)
+        {
+            int elementosPorPantalla = 20;
+            int paginaActual = 0;
+            int totalPaginas = (int)Math.Ceiling((double)lista.Count / elementosPorPantalla);
+
+            ConsoleKey tecla;
+
+            do
+            {
+                Console.Clear();
+
+                int altoPantalla = Console.WindowHeight;
+                int inicioY = (altoPantalla - elementosPorPantalla) / 2;
+
+                for (int i = 0; i < elementosPorPantalla; i++)
+                {
+                    int indice = paginaActual * elementosPorPantalla + i;
+                    if (indice >= lista.Count)
+                        break;
+
+                    Pokemon p = lista[indice];
+
+                    string texto = $"{p.GetId()}: {p.GetNombre()}";
+                    int x = (Console.WindowWidth - texto.Length) / 2;
+                    Console.SetCursorPosition(x, inicioY + i);
+                    Console.WriteLine(texto);
+                }
+
+                string instrucciones = "[←] Anterior  [→] Siguiente  [ESC] Salir";
+                int yInstrucciones = Console.WindowHeight - 2;
+                int xInstrucciones = (Console.WindowWidth - instrucciones.Length) / 2;
+                Console.SetCursorPosition(xInstrucciones, yInstrucciones);
+                Console.WriteLine(instrucciones);
+
+                // Leer tecla
+                tecla = Console.ReadKey(true).Key;
+                if (tecla == ConsoleKey.RightArrow && paginaActual < totalPaginas - 1)
+                    paginaActual++;
+                else if (tecla == ConsoleKey.LeftArrow && paginaActual > 0)
+                    paginaActual--;
+
+            } while (tecla != ConsoleKey.Escape);
+        }
+
+
+
         public static int SeleccionarOpcion(string[] opciones)
         {
             Console.CursorVisible = false;

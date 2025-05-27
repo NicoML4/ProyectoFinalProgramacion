@@ -180,48 +180,55 @@ namespace ProyectoFinalProgramacion
         {
             Console.Clear();
             string[] opcionesPokedex = {
-                "Mis Pokémon",
-                "Todos",
-                "Pokémons bloqueados",
-                "Filtrar por tipo",
-                "Atrás"
-            };
+        "Mis Pokémon",
+        "Todos",
+        "Pokémons bloqueados",
+        "Filtrar por tipo",
+        "Atrás"
+    };
             int opcion = ConsolaInterfaz.SeleccionarOpcion(opcionesPokedex);
             string rutaUsuario = "../../../Usuarios/" + usuario.NombreUsuario + ".txt";
             List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
             List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
+
             switch (opcion)
             {
                 case 0:
                     Console.Clear();
-                    listaPokemonUsuario.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
+                    ConsolaInterfaz.MostrarListaConScroll(listaPokemonUsuario);
                     break;
+
                 case 1:
                     Console.Clear();
-                    listaPokemons.Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(ConsolaInterfaz.WriteLineCentr);
-                    Console.ReadKey(true);
+                    ConsolaInterfaz.MostrarListaConScroll(listaPokemons);
                     break;
+
                 case 2:
                     Console.Clear();
-                    listaPokemons.Where(p => !listaPokemonUsuario.Any(u => u.GetId() == p.GetId()))
-                        .Select(p => $"{p.GetId()} - {p.GetNombre()}").ToList().ForEach(Console.WriteLine);
+                    var bloqueados = listaPokemons
+                        .Where(p => !listaPokemonUsuario.Any(u => u.GetId() == p.GetId()))
+                        .ToList();
+                    ConsolaInterfaz.MostrarListaConScroll(bloqueados);
                     break;
+
                 case 3:
                     Console.Clear();
                     string[] opcionesTipos = {
-                        "Filtrar por tipo fuego",
-                        "Filtrar por tipo agua",
-                        "Filtrar por tipo tierra",
-                        "Filtrar por tipo planta",
-                        "Atrás"
-                    };
+                "Filtrar por tipo fuego",
+                "Filtrar por tipo agua",
+                "Filtrar por tipo tierra",
+                "Filtrar por tipo planta",
+                "Atrás"
+            };
                     int opcionTipo = ConsolaInterfaz.SeleccionarOpcion(opcionesTipos);
-                    SwitchTipos(opcionTipo,rutaUsuario);
+                    SwitchTipos(opcionTipo, rutaUsuario);
                     break;
+
                 case 4:
                     break;
             }
         }
+
         public static void SwitchTipos(int opcion, string rutaUsuario)
         {
             List<Pokemon> listaPokemonUsuario = ListaPokemonUsuario(rutaUsuario);
