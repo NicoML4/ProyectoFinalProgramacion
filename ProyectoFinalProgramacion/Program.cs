@@ -7,6 +7,8 @@ namespace ProyectoFinalProgramacion
     internal class Program
     {
         const string FICHERO_POKEMON = "../../../Ficheros/pokemon_primera_generacion(modificado).txt";
+        const string CONTRASENYA_ADMIN = "P0kem0n";
+
         static Ajustes ajustesglobales = new Ajustes();
         public static Usuario IniciarSesion(string rutaUsuarios)
         {
@@ -298,22 +300,34 @@ namespace ProyectoFinalProgramacion
         }
         public static void DesbloquearTodo(string rutaUsuario)
         {
-            List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
-            DateTime fechaActual = DateTime.Now;
+            string contrasenya;
+            Console.Write("Introduce contraseña: ");
+            contrasenya = Console.ReadLine();
+            Console.WriteLine();
 
-            List<string> lineas = new List<string>();
-
-            foreach (Pokemon p in listaPokemons)
+            if (contrasenya == CONTRASENYA_ADMIN)
             {
-                string linea = p.GetId() + ";" + p.GetNombre() + ";" + p.GetVida() + ";" +
-                               p.GetTipo() + ";" + p.GetAtaque1().GetNombreAtaque() + ";" +
-                               p.GetAtaque2().GetNombreAtaque() + ";" + fechaActual.ToString("dd/MM/yyyy") + ";" +
-                               p.getAsset();
+                List<Pokemon> listaPokemons = ListaPokemonCompleta(FICHERO_POKEMON);
+                DateTime fechaActual = DateTime.Now;
 
-                lineas.Add(linea);
+                List<string> lineas = new List<string>();
+
+                foreach (Pokemon p in listaPokemons)
+                {
+                    string linea = p.GetId() + ";" + p.GetNombre() + ";" + p.GetVida() + ";" +
+                                   p.GetTipo() + ";" + p.GetAtaque1().GetNombreAtaque() + ";" +
+                                   p.GetAtaque2().GetNombreAtaque() + ";" + fechaActual.ToString("dd/MM/yyyy") + ";" +
+                                   p.getAsset();
+
+                    lineas.Add(linea);
+                }
+                File.WriteAllLines(rutaUsuario, lineas);
+                Console.WriteLine("Todos los pokemons han sido desbloqueados!!");
             }
-            File.WriteAllLines(rutaUsuario, lineas);
-            Console.WriteLine("Todos los pokemons han sido desbloqueados!!");
+            else
+            {
+                Console.WriteLine("Contraseña incorrecta!!");
+            }
         }
         public static void MenuOpciones(Usuario usuarioLogeado,string rutaUsuario)
         {
