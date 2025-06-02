@@ -80,7 +80,7 @@
 80;Slowbro;62;tierra;Gruñido;Arañazo;null;../../../assets/slowbro.txt
 81;Magnemite;107;fuego;Arañazo;Arañazo;null;../../../assets/magnemite.txt
 82;Magneton;68;tierra;Arañazo;Burbuja;null;../../../assets/magneton.txt
-83;Farfetch’d;44;tierra;Ascuas;Gruñido;null;../../../assets/farfetchd.txt
+83;Farfetchd;44;tierra;Ascuas;Gruñido;null;../../../assets/farfetchd.txt
 84;Doduo;45;tierra;Látigo Cepa;Pistola Agua;null;../../../assets/doduo.txt
 85;Dodrio;76;agua;Látigo Cepa;Gruñido;null;../../../assets/dodrio.txt
 86;Seel;74;planta;Burbuja;Placaje;null;../../../assets/seel.txt
