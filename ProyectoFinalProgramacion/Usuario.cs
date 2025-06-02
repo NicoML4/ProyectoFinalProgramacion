@@ -36,7 +36,7 @@ namespace ProyectoFinalProgramacion
 
         public override string ToString()
         {
-            return nombreUsuario + " " + contrasena;
+            return nombreUsuario;
         }
     }
 }
