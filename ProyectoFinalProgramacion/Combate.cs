@@ -10,6 +10,7 @@ namespace ProyectoFinalProgramacion
 {
     internal class Combate
     {
+        static Ajustes ajustesglobales = new Ajustes();
         private static bool CantidadMinimaPokemons(Usuario usuario)
         {
             string[] cantidadPokemons = File.ReadAllLines("../../../Usuarios/" + usuario.NombreUsuario + ".txt");
@@ -111,6 +112,7 @@ namespace ProyectoFinalProgramacion
                         break;
                     }
                 }
+                
             }
 
             Console.Clear();
@@ -545,6 +547,8 @@ namespace ProyectoFinalProgramacion
 
         private static void Jugar(Usuario usuario, Usuario enemigo, Pokemon[] baraja, Pokemon[] barajaEnemiga)
         {
+            //iniciar musica combate
+            ajustesglobales.Reproducircombate();
             Pokemon pokemonActualUsuario = baraja[0];
             Pokemon pokemonActualEnemigo = barajaEnemiga[0];
             Console.Clear();
@@ -653,6 +657,8 @@ namespace ProyectoFinalProgramacion
                     Console.ReadKey(true);
                 }
             }
+            //fin de combate
+            ajustesglobales.DetenerMusica();
         }
 
         public static void Inicializar(Usuario usuario)

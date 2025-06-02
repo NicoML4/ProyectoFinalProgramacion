@@ -331,6 +331,7 @@ namespace ProyectoFinalProgramacion
         }
         public static void MenuOpciones(Usuario usuarioLogeado,string rutaUsuario)
         {
+            ajustesglobales.ReproducirMusica();
             string[] opcionesMenuPrincipal = {
                 "Abrir sobres",
                 "Album",
@@ -351,7 +352,9 @@ namespace ProyectoFinalProgramacion
                         Pokedex(usuarioLogeado);
                         break;
                     case 2:
+                        ajustesglobales.DetenerMusica();
                         Combate.Inicializar(usuarioLogeado);
+                        ajustesglobales.ReproducirMusica();
                         break;
                     case 3:
                         Ajustes(usuarioLogeado,rutaUsuario);
@@ -359,6 +362,7 @@ namespace ProyectoFinalProgramacion
                     case 4:
                         ConsolaInterfaz.WriteLineCentr("Saliendo");
                         salir = true;
+                        ajustesglobales.DetenerMusica();
                         break;
                 }
                 if (!salir)

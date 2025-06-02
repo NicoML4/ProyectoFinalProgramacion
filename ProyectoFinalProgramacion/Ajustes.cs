@@ -10,7 +10,7 @@ namespace ProyectoFinalProgramacion
     internal class Ajustes
     {
         public ReproductorMusica reproductor;
-        
+
 
         public Ajustes(ReproductorMusica reproductor)
         {
@@ -27,13 +27,18 @@ namespace ProyectoFinalProgramacion
             reproductor.Reproducir();
         }
 
+        public void Reproducircombate()
+        {
+            reproductor.Reproducircombate();
+        }
+
         public void DetenerMusica()
         {
             reproductor.Detener();
         }
         public void ReiniciarPartida(Usuario usuarioLogeado)
         {
-            File.WriteAllText($"../../../Usuarios/{usuarioLogeado.NombreUsuario}.txt","");
+            File.WriteAllText($"../../../Usuarios/{usuarioLogeado.NombreUsuario}.txt", "");
             Console.WriteLine("Tu partida ha sido Reiniciada !!");
         }
     }

@@ -11,12 +11,14 @@ namespace ProyectoFinalProgramacion
     {
         Process procesoMusica;
         readonly string RutaPredeterminada;
+        readonly string RutaCombate;
         bool EstarReproduciendo = false;
 
         public ReproductorMusica()
         {
             // Construimos la ruta relativa a partir de la ruta de ejecucuion del proyecto
-            RutaPredeterminada = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"..","..","..","Musica","musicafondo.mp3"));
+            RutaPredeterminada = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Musica", "musicafondo.mp3"));
+            RutaCombate = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Musica", "musicacombate.mp3"));
 
             if (!File.Exists(RutaPredeterminada))
             {
@@ -26,11 +28,31 @@ namespace ProyectoFinalProgramacion
 
         public void Reproducir()
         {
-            if (!EstarReproduciendo && File.Exists(RutaPredeterminada))
+            Detener();
+
+            if (File.Exists(RutaPredeterminada))
+            {
+                procesoMusica = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "wmplayer.exe",
+                        Arguments = $"\"{RutaPredeterminada}\"",
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    }
+                };
+                procesoMusica.Start();
+                EstarReproduciendo = true;
+            }
+        }
+        public void Reproducircombate()
+        {
+            if ((procesoMusica == null || procesoMusica.HasExited) && File.Exists(RutaCombate))
             {
                 procesoMusica = new Process();
                 procesoMusica.StartInfo.FileName = "wmplayer.exe";
-                procesoMusica.StartInfo.Arguments = $"\"{RutaPredeterminada}\"";
+                procesoMusica.StartInfo.Arguments = $"\"{RutaCombate}\"";
                 procesoMusica.StartInfo.UseShellExecute = true;
                 procesoMusica.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 procesoMusica.Start();
@@ -40,14 +62,26 @@ namespace ProyectoFinalProgramacion
 
         public void Detener()
         {
-            if (EstarReproduciendo && procesoMusica != null)
+            if (procesoMusica != null)
             {
-                if (!procesoMusica.HasExited)
+                try
                 {
-                    procesoMusica.Kill();
+                    if (!procesoMusica.HasExited)
+                    {
+                        procesoMusica.Kill();
+                    }
+
+                    procesoMusica.Dispose();
                 }
-                procesoMusica.Dispose();
-                EstarReproduciendo = false;
+                catch (Exception ex)
+                {
+                    Console.WriteLine($" Error al detener la musica: {ex.Message}");
+                }
+                finally
+                {
+                    procesoMusica = null;
+                    EstarReproduciendo = false;
+                }
             }
         }
 
