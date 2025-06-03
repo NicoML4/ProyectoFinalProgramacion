@@ -399,6 +399,8 @@ namespace ProyectoFinalProgramacion
         }
         static void Main(string[] args)
         {
+            PantallaInicio.Mostrar();
+
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ConsolaInterfaz.ColorLetras();

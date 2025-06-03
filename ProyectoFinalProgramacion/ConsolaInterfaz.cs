@@ -110,9 +110,11 @@ namespace ProyectoFinalProgramacion
                 {
                     case ConsoleKey.UpArrow:
                         opcionSeleccionada = (opcionSeleccionada > 0) ? opcionSeleccionada - 1 : opciones.Length - 1;
+                        Console.Beep(1100, 100);
                         break;
                     case ConsoleKey.DownArrow:
                         opcionSeleccionada = (opcionSeleccionada < opciones.Length - 1) ? opcionSeleccionada + 1 : 0;
+                        Console.Beep(1100, 100);
                         break;
                 }
             } while (tecla.Key != ConsoleKey.Enter);
