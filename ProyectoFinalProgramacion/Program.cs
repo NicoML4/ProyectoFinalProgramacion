@@ -397,8 +397,14 @@ namespace ProyectoFinalProgramacion
             }
             return listaPokemonUsuario; 
         }
+        //metodo para manejar la musica al cerrar la consola por la x de la ventana
+        private static void OnProcessExit(object sender, EventArgs e)
+        {
+            ajustesglobales.DetenerMusica();
+        }
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.ProcessExit += OnProcessExit;//finalizar el proceso musica
             PantallaInicio.Mostrar();
 
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);

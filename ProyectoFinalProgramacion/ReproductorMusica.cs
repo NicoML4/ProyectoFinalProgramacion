@@ -77,7 +77,7 @@ namespace ProyectoFinalProgramacion
                 {
                     Console.WriteLine($" Error al detener la musica: {ex.Message}");
                 }
-                finally
+                finally //codigo que se ejecutara independientemente de lo anterior
                 {
                     procesoMusica = null;
                     EstarReproduciendo = false;
