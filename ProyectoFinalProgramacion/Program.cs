@@ -54,6 +54,7 @@ namespace ProyectoFinalProgramacion
             catch (JsonException e)
             {
                 ConsolaInterfaz.WriteLineCentr("Aun no se ha creado ningún usuario");
+                Console.ReadKey(true);
             }
             return aceptado ? usuarioGuardado : null;
         }
@@ -411,12 +412,13 @@ namespace ProyectoFinalProgramacion
             Console.SetBufferSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ConsolaInterfaz.ColorLetras();
             string rutaUsuarios = "../../../Usuarios/UsuariosRegistrados.json";
-            Usuario usuarioLogeado = Login(rutaUsuarios);
-            string rutaUsuario = "../../../Usuarios/" + usuarioLogeado.NombreUsuario + ".txt";
             if (!File.Exists(rutaUsuarios))
             {
                 File.WriteAllText(rutaUsuarios, "");
             }
+            Usuario usuarioLogeado = Login(rutaUsuarios);
+            string rutaUsuario = "../../../Usuarios/" + usuarioLogeado.NombreUsuario + ".txt";
+            
             MenuOpciones(usuarioLogeado,rutaUsuario);
         }
     }
