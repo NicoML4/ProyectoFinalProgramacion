@@ -242,6 +242,18 @@ namespace ProyectoFinalProgramacion
         private static Pokemon PokemonsVivos(Pokemon[] baraja, Pokemon pokemonAnterior)
         {
             int seleccionActual = 0;
+            bool vivo = false;
+            while (!vivo)
+            {
+                if (baraja[seleccionActual].GetVida() > 0)
+                {
+                    vivo = true;
+                }
+                else 
+                {
+                    seleccionActual++;
+                }
+            }
             Pokemon pokemonElegido = null;
             ConsoleKey tecla;
 
@@ -392,6 +404,7 @@ namespace ProyectoFinalProgramacion
                     Console.ResetColor();
                     break;
             }
+
             return ataque;
 
         }
@@ -639,11 +652,13 @@ namespace ProyectoFinalProgramacion
                     pokemonActualUsuario.RecibirDano(Calcular(AtaqueEnemigo(pokemonActualEnemigo), pokemonActualEnemigo));
                     Console.WriteLine($"Vida actual de {pokemonActualUsuario.GetNombre()}: {pokemonActualUsuario.GetVida()}");
 
+
                     if (pokemonActualUsuario.GetVida() == 0)
                     {
                         if (RecorrerBaraja(baraja))
                         {
                             Console.WriteLine($"¡{pokemonActualUsuario.GetNombre()} ha sido debilitado!");
+                            Console.ReadKey(true);
                             pokemonActualUsuario = PokemonsVivos(baraja, pokemonActualUsuario);
                             Console.WriteLine($"¡Sacas a {pokemonActualUsuario.GetNombre()}!");
                         }
@@ -653,8 +668,11 @@ namespace ProyectoFinalProgramacion
                             break;
                         }
                     }
+                    else
+                    {
+                        Console.ReadKey(true);
+                    }
 
-                    Console.ReadKey(true);
                 }
             }
             //fin de combate
