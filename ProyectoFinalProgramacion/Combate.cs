@@ -257,13 +257,6 @@ namespace ProyectoFinalProgramacion
             Pokemon pokemonElegido = null;
             ConsoleKey tecla;
 
-            // Asegurarse de que al menos uno esté vivo
-            if (!baraja.Any(p => p.GetVida() > 0))
-            {
-                Console.WriteLine("Todos los Pokémon están debilitados.");
-                return null;
-            }
-
             do
             {
                 Console.Clear();

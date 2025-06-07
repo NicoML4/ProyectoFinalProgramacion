@@ -14,21 +14,6 @@ namespace ProyectoFinalProgramacion
         { 
             this.nombre = nombre;
         }
-
-        public int Damage()
-        {
-            int damage =0;
-            switch (nombre)
-            { 
-
-                //TODO hay que comprobar cuales son los ataques que existen y para cada uno de ellos decir cuanta vida va a quitar y ponerle ese valor a damage
-                default:
-                    Console.WriteLine("Esto no deberia de estar saliendo");
-                    break;
-            }
-            return damage;
-        }
-
         public void SetNombreAtaque(string nombre)
         { 
             this.nombre = nombre;
