@@ -417,10 +417,6 @@ namespace ProyectoFinalProgramacion
             {
                 File.WriteAllText(rutaUsuarios, "");
             }
-            else 
-            {
-                Console.WriteLine("Esto existe");
-            }
             MenuOpciones(usuarioLogeado,rutaUsuario);
         }
     }
